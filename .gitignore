@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+#Django stuff:
+*.log 
+migrations/
+
+#Virtual Environment 
+venv_brennanlooms/
