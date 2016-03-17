@@ -12,18 +12,14 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+from .local_settings import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_&i-jz*ff6o2_l=w42mird^rct$y3a!o6rgu-$&88^_@7_u9y-'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -69,22 +65,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'brennan_looms.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'brennanlooms_db',
-        'USER': 'sarah6lynn', 
-        'PASSWORD': 'brennanlooms6', 
-        'HOST': '', 
-        'PORT': '', 
-
-    }
-}
 
 
 # Password validation
