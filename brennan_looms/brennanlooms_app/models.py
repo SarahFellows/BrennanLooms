@@ -15,6 +15,7 @@ class LoomUser(models.Model):
 
 
 class Order(models.Model):
+    """ Orders that come from the website """
 
     # Order Status Const 
     IN_PROCESS = 1
@@ -28,7 +29,7 @@ class Order(models.Model):
         )
 
     # This is the foreign key reference 
-    loom_user_id = models.ForeignKey(LoomUsers)
+    loom_user_id = models.ForeignKey(LoomUser)
 
     #make the order status const tie in:
     order_status = models.IntegerField(choices=Status, default=IN_PROCESS)
@@ -56,10 +57,13 @@ class CompanyInfo(models.Model):
     contact_email = models.EmailField(max_length=254)
     contact_phone = models.SmallIntegerField()
 
-# class Image(models.Model):
+class Image(models.Model):
 
-#     src = models.ImageField
-
+    photo = models.ImageField(upload_to='loom_pics')
+    product_id = models.ForeignKey(Product)
+    photo_description = models.TextField(max_length=1000)
+    # this sets the images to be false. I will need to make the primary true and the rest will register as false.
+    primary_img = models.BooleanField(default=False)
 
 
 
