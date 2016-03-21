@@ -1,12 +1,15 @@
 from django.db import models
 from django.conf import settings
 
+# this is for the phone number in CompanyInfo
+from django.core.validators import RegexValidator
+
 # Create your models here.
 
 class LoomUser(models.Model):
     """ For the client of the website - the user"""
 
-    name = models.TextField(max_length=200)
+    name = models.TextField(max_length=100)
     shipping_address = models.TextField(max_length=500)
     security_quest = models.TextField(max_length=1000)
 
@@ -44,10 +47,11 @@ class Order(models.Model):
 
 class Product(models.Model):
 
+    product_name = models.CharField(max_length=300, default="The Loom")
     loom_description = models.TextField(max_length=1000)
     loom_dimension = models.TextField(max_length=1000)
-    loom_cost = models.PositiveIntegerField()
-    shipping = models.IntegerField() 
+    loom_cost = models.CharField(max_length=50)
+    shipping = models.CharField(max_length=50) 
 
 class CompanyInfo(models.Model):
 
@@ -55,7 +59,11 @@ class CompanyInfo(models.Model):
     company_info = models.TextField(max_length=1000)
     contact_name = models.TextField(max_length =100)
     contact_email = models.EmailField(max_length=254)
-    contact_phone = models.SmallIntegerField()
+    #contact_phone = models.CharField(max_length=12)
+
+    # This is the online solution 
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], blank=True, max_length=12, default="541-915-2523") # validators should be a list
 
 class Image(models.Model):
 
