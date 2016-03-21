@@ -4,7 +4,29 @@ from django.conf import settings
 # this is for the phone number in CompanyInfo
 from django.core.validators import RegexValidator
 
+#this is to create a basic client user for the website
+from django.contrib.auth.models import AbstractBaseUser 
+
 # Create your models here.
+
+class User(AbstractBaseUser):
+    """ Customer user class """
+
+    #Unique makes sure that users can only register an email once
+    email = models.EmailField('email address', unique=True, db_index=True)
+    #automatically populated with a DateTime of when the user registers
+    joined = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    # By default, users shouldn't be administrators when they register, so is_admin field is set to False
+    is_admin = models.BooleanField(default=False)
+
+    #field that tells Django which field on the User model is used as the unique identifier
+    USERNAME_FIELD = 'email'
+
+    #unicode - method to display a human-readable representation of our User model object. 
+    def __unicode__(self):
+        return self.email
+
 
 class LoomUser(models.Model):
     """ For the client of the website - the user"""
@@ -38,9 +60,9 @@ class Order(models.Model):
     order_status = models.IntegerField(choices=Status, default=IN_PROCESS)
 
     shipping_address = models.TextField(max_length=70)
-    cost_total = models.IntegerField()
+    cost_total = models.DecimalField(max_digits=6, decimal_places=2)
     tracking_info = models.CharField(max_length=200)
-    shipping_costs = models.IntegerField()
+    shipping_costs = models.DecimalField(max_digits=6, decimal_places=2)
 
     # This is where you reference the relational table. You only need to do it once, here, not again in Products.
     products = models.ManyToManyField("Product") 
