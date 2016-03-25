@@ -77,9 +77,9 @@ class Product(models.Model):
 
 class CompanyInfo(models.Model):
 
-    about_ = models.TextField(max_length=1000)
-    company_info = models.TextField(max_length=1000)
-    contact_name = models.TextField(max_length =100)
+    company_name = models.TextField(max_length=1000)
+    contact_name = models.TextField(max_length=100)
+    contact_address = models.TextField(max_length=200, default="3507 NE 7th Ave, Portland, Oregon, 97212")
     contact_email = models.EmailField(max_length=254)
     #contact_phone = models.CharField(max_length=12)
 
@@ -87,9 +87,22 @@ class CompanyInfo(models.Model):
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], blank=True, max_length=12, default="541-915-2523") # validators should be a list
 
+class AboutPage(models.Model):
+
+    about_archie = models.TextField(max_length=1000)
+    archie_quote = models.TextField(max_length=1000)
+    about_jesse = models.TextField(max_length=1000)
+    family_photo = models.ImageField(upload_to='images')
+
+class WebPageLink(models.Model):
+
+    link_image = models.ImageField(upload_to='images')
+    link_text = models.TextField(max_length=1000)
+    link_field = models.SlugField(max_length=50)
+
 class Image(models.Model):
 
-    photo = models.ImageField(upload_to='loom_pics')
+    photo = models.ImageField(upload_to='images')
     product_id = models.ForeignKey(Product)
     photo_description = models.TextField(max_length=1000)
     # this sets the images to be false. I will need to make the primary true and the rest will register as false.
