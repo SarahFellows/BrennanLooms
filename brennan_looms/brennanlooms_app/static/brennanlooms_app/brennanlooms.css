@@ -3,23 +3,66 @@
     margin: 0;
     padding: 0;
 
+}
+
+body {
+
+    font-family: 'Poiret One', cursive;
+}
+
+.page-header {
+    background: white url ("images/logohandwritten.png");
 
 }
+
 
 .link-banner {
     border-style: solid;
     text-decoration: none; 
-
-
+    padding: 1px;
+    background-color: #DDDDDD; 
 }
 
 .content-box{
     border-style: solid;
     text-decoration: none; 
+    margin: 50px; 
 
 }
 
 a {
     text-decoration: none; 
+}
+
+a:active {
+    color: white;
+   } 
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 2px 10px 2px 10px;
+    text-decoration: none;
+    text-align: center;
+    background-color: #DDDDDD; 
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 1px 50px 1px 1px;
+    padding: 1%;
+    overflow: hidden;
+    background-color: white;
+    text-align: center; 
+    background-color: #DDDDDD; 
 
 }

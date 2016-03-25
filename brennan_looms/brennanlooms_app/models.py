@@ -59,7 +59,7 @@ class Order(models.Model):
     #make the order status const tie in:
     order_status = models.IntegerField(choices=Status, default=IN_PROCESS)
 
-    shipping_address = models.TextField(max_length=70)
+
     cost_total = models.DecimalField(max_digits=6, decimal_places=2)
     tracking_info = models.CharField(max_length=200)
     shipping_costs = models.DecimalField(max_digits=6, decimal_places=2)
@@ -77,7 +77,7 @@ class Product(models.Model):
 
 class CompanyInfo(models.Model):
 
-    about_me = models.TextField(max_length=1000)
+    about_ = models.TextField(max_length=1000)
     company_info = models.TextField(max_length=1000)
     contact_name = models.TextField(max_length =100)
     contact_email = models.EmailField(max_length=254)
