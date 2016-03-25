@@ -1,0 +1,25 @@
+.page-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+.link-banner {
+    border-style: solid;
+    text-decoration: none; 
+
+
+}
+
+.content-box{
+    border-style: solid;
+    text-decoration: none; 
+
+}
+
+a {
+    text-decoration: none; 
+
+}
