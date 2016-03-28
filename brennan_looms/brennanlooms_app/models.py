@@ -98,7 +98,7 @@ class WebPageLink(models.Model):
 
     link_image = models.ImageField(upload_to='images')
     link_text = models.TextField(max_length=1000)
-    link_field = models.SlugField(max_length=50)
+    link_field = models.URLField(max_length=50)
 
 class Image(models.Model):
 

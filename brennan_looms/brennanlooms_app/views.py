@@ -13,7 +13,7 @@ def brennanlooms_app(request):
 
 
 def about_page(request):
-    """ build context object to grab database """
+    """ build context object to grab info Company-Info model from database """
     # print("about_page working?")
 
     #this needs to be refactored later, the 0 on the get.all is not ideal 
@@ -24,3 +24,30 @@ def about_page(request):
     # print(temp.about_archie)
 
     return render(request, 'brennanlooms_app/about.html', {"about": temp})
+
+def looms_page(request):
+    """ build a context object to grab info from looms_page model from database """
+
+    looms = Product.objects.all()[0]
+
+    return render(request, 'brennanlooms_app/looms.html', {"looms": looms})
+
+
+def links_page(request):
+    """ build a conext object to grab info from links_page model from database """
+
+    links = WebPageLink.objects.all()[0]
+    return render(request, 'brennanlooms_app/links.html', {"links": links})
+
+def contact_page(request):
+    """ Build a conext object to grab info from contacts model from database """
+
+    contact = CompanyInfo.objects.all()[0]
+    return render(request, 'brennanlooms_app/contact.html', {"contact": contact})
+
+
+
+
+
+
+
