@@ -17,8 +17,12 @@ function loadAboutPage(event){
 
         }
 
-    })
-}
+    }); 
+}; 
+
+
+
+
 
 
 
