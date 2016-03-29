@@ -28,7 +28,7 @@ def about_page(request):
 def looms_page(request):
     """ build a context object to grab info from looms_page model from database """
 
-    looms = Product.objects.all()[0]
+    looms = Product.objects.all()
 
     return render(request, 'brennanlooms_app/looms.html', {"looms": looms})
 

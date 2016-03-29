@@ -75,6 +75,10 @@ class Product(models.Model):
     loom_cost = models.CharField(max_length=50)
     shipping = models.CharField(max_length=50) 
 
+    #override the string function for the admin portal so it displays the product name instead 
+    def __str__(self):
+      return self.product_name
+
 class CompanyInfo(models.Model):
 
     company_name = models.TextField(max_length=1000)
@@ -87,26 +91,36 @@ class CompanyInfo(models.Model):
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], blank=True, max_length=12, default="541-915-2523") # validators should be a list
 
+    def __str__(self):
+      return self.company_name
+
 class AboutPage(models.Model):
 
     about_archie = models.TextField(max_length=1000)
     archie_quote = models.TextField(max_length=1000)
     about_jesse = models.TextField(max_length=1000)
-    family_photo = models.ImageField(upload_to='images')
+    family_photo = models.ImageField(upload_to='images', blank=True)
 
 class WebPageLink(models.Model):
 
-    link_image = models.ImageField(upload_to='images')
+    link_image = models.ImageField(upload_to='images', blank=True)
     link_text = models.TextField(max_length=1000)
     link_field = models.URLField(max_length=50)
+
+    def __str__(self):
+      return self.link_text
 
 class Image(models.Model):
 
     photo = models.ImageField(upload_to='images')
+    photo_name = models.TextField(max_length=200)
     product_id = models.ForeignKey(Product)
     photo_description = models.TextField(max_length=1000)
     # this sets the images to be false. I will need to make the primary true and the rest will register as false.
     primary_img = models.BooleanField(default=False)
+
+    def __str__(self):
+      return self.photo_name
 
 
 

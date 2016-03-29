@@ -37,7 +37,7 @@ function loadLoomsPage(event){
     }); 
 }; 
 
-
+//Create a function to call the links page when link is clicked on 
 function loadLinksPage(event){
     console.log("This is for the links button"); 
     event.preventDefault(); 
@@ -51,6 +51,7 @@ function loadLinksPage(event){
     }); 
 }; 
 
+//Create a function to call the contact page when link is clicked on 
 function loadContactPage(event){
     event.preventDefault(); 
 
