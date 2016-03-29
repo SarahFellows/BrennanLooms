@@ -20,13 +20,14 @@ body {
     border-style: solid;
     text-decoration: none; 
     padding: 1px;
+    margin: 2%;
     background-color: #DDDDDD; 
 }
 
 .content-box{
     border-style: solid;
     text-decoration: none; 
-    margin: 50px; 
+    margin: 2%; 
 
 }
 
@@ -35,15 +36,15 @@ a {
 }
 
 a:active {
-    color: white;
+    color: #E7AE52;;
    } 
 
 a:link {
-    color: white;
+    color: #E7AE52;;
 }
 
 a:visited {
-    color: white;
+    color: #E7AE52;;
 }
 
 li {
@@ -66,3 +67,13 @@ ul {
     background-color: #DDDDDD; 
 
 }
+
+.product-name{
+    color: #E7AE52;
+    font-weight: bold;
+
+}
+
+
+
+

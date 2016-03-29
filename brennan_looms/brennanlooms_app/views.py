@@ -17,7 +17,7 @@ def about_page(request):
     # print("about_page working?")
 
     #this needs to be refactored later, the 0 on the get.all is not ideal 
-    # this creates a variable that puts all the 
+    # this creates a variable that puts all the objects into one object 
     temp = AboutPage.objects.all()[0]
     
     # print(temp)
@@ -29,6 +29,8 @@ def looms_page(request):
     """ build a context object to grab info from looms_page model from database """
 
     looms = Product.objects.all()
+    print(looms)
+    print(len(looms))
 
     return render(request, 'brennanlooms_app/looms.html', {"looms": looms})
 
@@ -36,7 +38,7 @@ def looms_page(request):
 def links_page(request):
     """ build a conext object to grab info from links_page model from database """
 
-    links = WebPageLink.objects.all()[0]
+    links = WebPageLink.objects.all()
     return render(request, 'brennanlooms_app/links.html', {"links": links})
 
 def contact_page(request):

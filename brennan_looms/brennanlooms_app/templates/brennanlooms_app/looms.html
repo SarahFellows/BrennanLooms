@@ -1,20 +1,25 @@
+{% load staticfiles %}
+
+<head>
+<link rel="stylesheet" href="{% static 'brennanlooms_app/brennanlooms.css' %}">
+</head> 
+
 <h1> Looms </h1> 
 
-{% for each_loom in looms %}
+{% for loom in looms %}
 
     <div class="loom-product">
 
-        <p id="product-name"> {{looms.product_name}} </p> 
+        <p id="product-name"> {{loom.product_name}} </p> 
 
-        <p id="loom-description"> {{looms.loom_description}} </p> 
+        <p id="loom-description"> {{loom.loom_description}} </p> 
 
-        <p id="loom-dimension"> {{looms.loom_dimension}} </p>
+        <p id="loom-dimension"> {{loom.loom_dimension}} </p>
 
-        <p id="loom-cost"> {{looms.loom_cost}} </p>
+        <p id="loom-cost"> {{loom.loom_cost}} </p>
 
-        <p id="shipping"> {{looms.shipping}} </p>
+        <p id="shipping"> {{loom.shipping}} </p>
 
     </div> 
 
 {% endfor %}
-

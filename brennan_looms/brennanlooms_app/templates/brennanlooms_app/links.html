@@ -1,7 +1,22 @@
+
+{% load staticfiles %}
+
+<head>
+<link rel="stylesheet" href="{% static 'brennanlooms_app/brennanlooms.css' %}">
+</head> 
+
 <h1> Resources and Links </h1> 
 
-<p id="link-image"> {{links.link_image}} </p> 
+{% for link in links %}
 
-<p id="link-text"> {{links.link_text}} </p> 
+    <div class="list-of-links"> 
 
-<p id="link_field"> {{links.link_field}} </p>
+        <p id="link-image"> {{link.link_image}} </p> 
+
+        <p id="link-text"> {{link.link_text}} </p> 
+
+        <p id="link_field"> {{link.link_field}} </p>
+
+    </div> 
+
+{% endfor %}
