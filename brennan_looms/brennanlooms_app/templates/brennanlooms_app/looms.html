@@ -1,14 +1,22 @@
 {% load staticfiles %}
 
-<head>
+<head> 
 <link rel="stylesheet" href="{% static 'brennanlooms_app/brennanlooms.css' %}">
 </head> 
 
 <h1> Looms </h1> 
 
+<!-- create a loop that loops through the looms variable created in views.py in def looms_page -->
 {% for loom in looms %}
 
     <div class="loom-product">
+
+    <!-- create a loop that loops through the loom images so they appear no matter how many there are -->
+    {% for image in loom.images.all %}
+
+        <img src="{{image.photo.url}}"> </img>
+
+    {% endfor %}
 
         <p id="product-name"> {{loom.product_name}} </p> 
 
@@ -23,3 +31,4 @@
     </div> 
 
 {% endfor %}
+

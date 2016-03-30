@@ -114,7 +114,7 @@ class Image(models.Model):
 
     photo = models.ImageField(upload_to='images')
     photo_name = models.TextField(max_length=200)
-    product_id = models.ForeignKey(Product)
+    product_id = models.ForeignKey(Product, related_name="images")
     photo_description = models.TextField(max_length=1000)
     # this sets the images to be false. I will need to make the primary true and the rest will register as false.
     primary_img = models.BooleanField(default=False)

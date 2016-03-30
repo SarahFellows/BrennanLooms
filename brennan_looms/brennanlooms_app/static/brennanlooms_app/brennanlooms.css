@@ -68,12 +68,26 @@ ul {
 
 }
 
-.product-name{
+#product-name {
     color: #E7AE52;
     font-weight: bold;
+    font-size: 150%; 
 
 }
 
+#link-text{
+    color: #E7AE52;
+    font-weight: bold;
+    font-size: 150%; 
 
+}
+
+#man-drawing{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
 
 

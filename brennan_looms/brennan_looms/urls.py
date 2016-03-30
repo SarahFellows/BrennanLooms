@@ -17,6 +17,9 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 # from brennanlooms_app import urls as brennanlooms_app_urls
 # from brennanlooms_app.views import * 
 
@@ -24,6 +27,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('brennanlooms_app.urls')), 
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

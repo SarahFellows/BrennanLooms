@@ -9,6 +9,7 @@ from .models import *
 # Create your views here.
 
 def brennanlooms_app(request):
+    #renders the home page 
     return render(request, 'brennanlooms_app/index.html')
 
 
@@ -17,7 +18,7 @@ def about_page(request):
     # print("about_page working?")
 
     #this needs to be refactored later, the 0 on the get.all is not ideal 
-    # this creates a variable that puts all the objects into one object 
+    # this creates a variable that puts all the objects into one variable
     temp = AboutPage.objects.all()[0]
     
     # print(temp)
@@ -28,22 +29,31 @@ def about_page(request):
 def looms_page(request):
     """ build a context object to grab info from looms_page model from database """
 
+    #create a variable to put all the product objects into 
     looms = Product.objects.all()
-    print(looms)
-    print(len(looms))
 
-    return render(request, 'brennanlooms_app/looms.html', {"looms": looms})
+    #create a empty list to store the list of loom images in
+    images = []
+
+    #create a loop that loops through all the images and appends them to the empty list 
+    for loom in looms: 
+        images.append(loom.images.all)
+    print(images)
+
+    return render(request, 'brennanlooms_app/looms.html', {"looms": looms, "images": images})
 
 
 def links_page(request):
     """ build a conext object to grab info from links_page model from database """
 
+    #create a variable to put all the link objects into 
     links = WebPageLink.objects.all()
     return render(request, 'brennanlooms_app/links.html', {"links": links})
 
 def contact_page(request):
     """ Build a conext object to grab info from contacts model from database """
 
+    #create a variable to put the contact info object into 
     contact = CompanyInfo.objects.all()[0]
     return render(request, 'brennanlooms_app/contact.html', {"contact": contact})
 
