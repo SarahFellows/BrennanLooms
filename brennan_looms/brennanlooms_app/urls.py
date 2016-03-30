@@ -9,6 +9,6 @@ urlpatterns = [
     url(r'^looms$', looms_page, name='looms_page'), 
     url(r'^links$', links_page, name='links_page'), 
     url(r'^contact$', contact_page, name='contact_page'), 
-    url(r'^cart$', cart_page, name='cart_page'),
+    # url(r'^cart$', cart_page, name='cart_page'),
 
 ]

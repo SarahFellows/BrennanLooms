@@ -4,8 +4,7 @@ document.getElementById("company-info").addEventListener('click', loadAboutPage)
 document.getElementById("products").addEventListener('click', loadLoomsPage); 
 document.getElementById("links").addEventListener('click', loadLinksPage); 
 document.getElementById("contact-info").addEventListener('click', loadContactPage); 
-// This is the button for the cart 
-document.getElementById("cart-button").addEventListener('click', loadCartPage); 
+
 
 
 //Create a function to call the about page 
@@ -35,6 +34,11 @@ function loadLoomsPage(event){
         success: function(data){
             $("#content-box").html(data); 
             console.log("Looms/Product page   Success")
+            // This is the button for the cart 
+            document.getElementById("cart-button").addEventListener('click', function(){
+                console.log("this is for the cart button")
+            });
+                
         }
     }); 
 }; 
@@ -66,18 +70,18 @@ function loadContactPage(event){
     }); 
 }
 
-function loadCartPage(event){
-    event.preventDefault(); 
-    console.log("load cart Page test")
+// function loadCartPage(event){
+//     event.preventDefault(); 
+//     console.log("load cart Page test")
 
-    $.ajax({
-        url: "cart", 
-        success: function(data){
-            $("#content-box").html(data); 
-            console.log("cart page success!")
-        }
-    }); 
-}
+//     $.ajax({
+//         url: "cart", 
+//         success: function(data){
+//             $("#content-box").html(data); 
+//             console.log("cart page success!")
+//         }
+//     }); 
+// }
 
 
 
