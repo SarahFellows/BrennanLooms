@@ -33,15 +33,25 @@ function loadLoomsPage(event){
         url: "looms", 
         success: function(data){
             $("#content-box").html(data); 
-            console.log("Looms/Product page   Success")
+            console.log("Looms/Product page Success")
             // This is the button for the cart 
-            document.getElementById("cart-button").addEventListener('click', function(){
-                console.log("this is for the cart button")
-            });
-                
-        }
-    }); 
-}; 
+            document.addEventListener('click', cartPage)
+            }
+        })
+};
+
+// this calls the cart page to store the pk value and pass it in sessionStorage
+function cartPage(event){
+    if (event.target.className === "cart-button"){
+        // console.log("this is for the cart page")
+        // console.log(event.target.id)
+        sessionStorage.setItem("product-id", event.target.id)
+    } else {
+        console.log("Value in sesssion storage is:", sessionStorage.getItem("product-id"))
+    }
+    
+
+}
 
 //Create a function to call the links page when link is clicked on 
 function loadLinksPage(event){
