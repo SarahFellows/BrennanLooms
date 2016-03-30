@@ -107,6 +107,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
+
+#this is to make the photos that are uploaded through the admin portal route to the correct path through django
+#in other words, its telling Django that on the computer I can find the static file at... 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 

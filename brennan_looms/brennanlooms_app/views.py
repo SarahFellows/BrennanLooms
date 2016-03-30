@@ -29,7 +29,7 @@ def about_page(request):
 def looms_page(request):
     """ build a context object to grab info from looms_page model from database """
 
-    #create a variable to put all the product objects into 
+    #create a variable to put all the product objects into. Product is the model from models.py
     looms = Product.objects.all()
 
     #create a empty list to store the list of loom images in
@@ -55,10 +55,14 @@ def contact_page(request):
 
     #create a variable to put the contact info object into 
     contact = CompanyInfo.objects.all()[0]
+    #render the page
     return render(request, 'brennanlooms_app/contact.html', {"contact": contact})
 
+def cart_page(request):
+     """ Build a conext object to grab HTML info for cart page"""
 
-
+     #renders the cart page
+     return render(request, 'brennanlooms_app/cart.html')
 
 
 

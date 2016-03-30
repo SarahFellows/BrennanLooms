@@ -11,7 +11,8 @@
 
     <div class="loom-product">
 
-    <!-- create a loop that loops through the loom images so they appear no matter how many there are -->
+    <!-- create a loop that loops through the loom images so they appear no matter how many there are, inside 
+            the other loop so that it stays with the product.-->
     {% for image in loom.images.all %}
 
         <img src="{{image.photo.url}}"> </img>
@@ -28,7 +29,12 @@
 
         <p id="shipping"> {{loom.shipping}} </p>
 
+        <button type="button" id="cart-button">Buy Me!</button> 
+
     </div> 
 
 {% endfor %}
+
+    
+
 
