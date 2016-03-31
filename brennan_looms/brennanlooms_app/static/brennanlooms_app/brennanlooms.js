@@ -4,6 +4,7 @@ document.getElementById("company-info").addEventListener('click', loadAboutPage)
 document.getElementById("products").addEventListener('click', loadLoomsPage); 
 document.getElementById("links").addEventListener('click', loadLinksPage); 
 document.getElementById("contact-info").addEventListener('click', loadContactPage); 
+document.getElementById("cart").addEventListener('click', loadCartPage); 
 
 
 
@@ -26,14 +27,13 @@ function loadAboutPage(event){
 
 //Create a function to call the looms page when link is clicked on 
 function loadLoomsPage(event){
-    console.log("This is for the looms button"); 
     event.preventDefault(); 
 
        $.ajax({
         url: "looms", 
         success: function(data){
             $("#content-box").html(data); 
-            console.log("Looms/Product page Success")
+        
             // This is the button for the cart 
             document.addEventListener('click', cartPage)
             }
@@ -42,14 +42,23 @@ function loadLoomsPage(event){
 
 // this calls the cart page to store the pk value and pass it in sessionStorage
 function cartPage(event){
+    // if the cart button is clicked, add the ID to the storage session
     if (event.target.className === "cart-button"){
-        // console.log("this is for the cart page")
-        // console.log(event.target.id)
-        sessionStorage.setItem("product-id", event.target.id)
-    } else {
-        console.log("Value in sesssion storage is:", sessionStorage.getItem("product-id"))
-    }
-    
+        addToSessionStorage(event.target.id)
+        console.log("Value in sesssion storage is:", sessionStorage.getItem("products"))
+    } 
+}
+
+function addToSessionStorage(id){
+    currentList = JSON.parse(sessionStorage.getItem("products"))
+    console.log(typeof(currentList))
+    if (currentList === null){
+        currentList = []
+    } 
+    currentList.push(Number(id))
+
+    //when the user clicks the add to cart button, we grab the value from products and write it to sessionStorage
+    sessionStorage.setItem("products", JSON.stringify(currentList))
 
 }
 
@@ -80,18 +89,18 @@ function loadContactPage(event){
     }); 
 }
 
-// function loadCartPage(event){
-//     event.preventDefault(); 
-//     console.log("load cart Page test")
+function loadCartPage(event){
+    event.preventDefault(); 
+    console.log("load cart Page test")
 
-//     $.ajax({
-//         url: "cart", 
-//         success: function(data){
-//             $("#content-box").html(data); 
-//             console.log("cart page success!")
-//         }
-//     }); 
-// }
+    $.ajax({
+        url: "cart", 
+        success: function(data){
+            $("#content-box").html(data); 
+            console.log("cart page success!")
+        }
+    }); 
+}
 
 
 

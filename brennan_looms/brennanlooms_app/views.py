@@ -58,11 +58,11 @@ def contact_page(request):
     #render the page
     return render(request, 'brennanlooms_app/contact.html', {"contact": contact})
 
-# def cart_page(request):
-#      """ Build a conext object to grab HTML info for cart page"""
+def cart_page(request):
+     """ Build a conext object to grab HTML info for cart page"""
 
-#      #renders the cart page
-#      return render(request, 'brennanlooms_app/cart.html')
+     #renders the cart page
+     return render(request, 'brennanlooms_app/cart.html')
 
 
 
