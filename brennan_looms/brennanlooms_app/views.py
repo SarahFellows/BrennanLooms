@@ -59,10 +59,18 @@ def contact_page(request):
     return render(request, 'brennanlooms_app/contact.html', {"contact": contact})
 
 def cart_page(request):
-     """ Build a conext object to grab HTML info for cart page"""
+    """ Build a conext object to grab HTML info for cart page"""
 
-     #renders the cart page
-     return render(request, 'brennanlooms_app/cart.html')
+    # Eval says "take this input and interpret into whatever it looks like"
+    id_list = eval(request.GET.get("products"))
+    id_list.sort()
+    # uniqueProducts = set(productList)
+    product_list = []
+    for item in id_list:
+        product = Product.objects.get(pk=item)
+        product_list.append(product)
+    #renders the cart page
+    return render(request, 'brennanlooms_app/cart.html', {"products": product_list})
 
 
 

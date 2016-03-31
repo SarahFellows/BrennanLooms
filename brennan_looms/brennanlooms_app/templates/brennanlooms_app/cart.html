@@ -10,7 +10,19 @@
 
     <div id="show-cart" class="show-cart"> 
 
+    {% for item in products %}
+
+    <div class="item"> 
+
+        <h3> {{ item.product_name}} </h3> 
+
     </div> 
+
+    {% endfor %}
+
+
+
+
 
 <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_xclick">

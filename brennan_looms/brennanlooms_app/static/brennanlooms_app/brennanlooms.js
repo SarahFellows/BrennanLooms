@@ -91,10 +91,10 @@ function loadContactPage(event){
 
 function loadCartPage(event){
     event.preventDefault(); 
-    console.log("load cart Page test")
-
+    currentList = (sessionStorage.getItem("products"))
     $.ajax({
         url: "cart", 
+        data: {"products": currentList}, 
         success: function(data){
             $("#content-box").html(data); 
             console.log("cart page success!")
