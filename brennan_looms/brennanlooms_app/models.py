@@ -9,28 +9,9 @@ from django.contrib.auth.models import AbstractBaseUser
 
 # Create your models here.
 
-
-class User(AbstractBaseUser):
-    """ Customer user class """
-
-    #Unique makes sure that users can only register an email once
-    email = models.EmailField('email address', unique=True, db_index=True)
-    #automatically populated with a DateTime of when the user registers
-    joined = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=True)
-    # By default, users shouldn't be administrators when they register, so is_admin field is set to False
-    is_admin = models.BooleanField(default=False)
-
-    #field that tells Django which field on the User model is used as the unique identifier
-    USERNAME_FIELD = 'email'
-
-    #unicode - method to display a human-readable representation of our User model object. 
-    def __str__(self):
-        return str(self.email)
-
-
 class LoomUser(models.Model):
     """ For the client of the website - the user"""
+    # We may end up deleting this, for the client changed his mind on the user aspect of it. 
 
     name = models.TextField(max_length=100)
     shipping_address = models.TextField(max_length=500)
@@ -42,6 +23,7 @@ class LoomUser(models.Model):
 
 class Order(models.Model):
     """ Orders that come from the website """
+    # We still need to make the final orders communicate with the order model in the database to populate on the backside correctly.
 
     # Order Status Const 
     IN_PROCESS = 1
@@ -59,7 +41,6 @@ class Order(models.Model):
 
     #make the order status const tie in:
     order_status = models.IntegerField(choices=Status, default=IN_PROCESS)
-
 
     cost_total = models.DecimalField(max_digits=6, decimal_places=2)
     tracking_info = models.CharField(max_length=200)
@@ -93,10 +74,12 @@ class CompanyInfo(models.Model):
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], blank=True, max_length=12, default="541-915-2523") # validators should be a list
 
+    #overside the string function for the admin portal so it displays the company name instead.
     def __str__(self):
       return self.company_name
 
 class AboutPage(models.Model):
+    """ This is where all the information about the company is stored."""
 
     about_archie = models.TextField(max_length=1000)
     archie_quote = models.TextField(max_length=1000)
@@ -104,15 +87,18 @@ class AboutPage(models.Model):
     family_photo = models.ImageField(upload_to='images', blank=True)
 
 class WebPageLink(models.Model):
+    """ This is where the resoucres and links information is stored to be displayed on website. """
 
     link_image = models.ImageField(upload_to='images', blank=True)
     link_text = models.TextField(max_length=1000)
     link_field = models.URLField(max_length=50)
 
+    # Overrite the string object so it shows which links/resources it is referencing on the adminsite 
     def __str__(self):
       return self.link_text
 
 class Image(models.Model):
+    """ This is the model for all the images on the website besides the logo and home images """
 
     photo = models.ImageField(upload_to='images')
     photo_name = models.TextField(max_length=200)

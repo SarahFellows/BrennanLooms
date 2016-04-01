@@ -1,8 +1,10 @@
+<!-- This page is the start of trying to edit the django admin title on the admin side. Need to change it to Brennan Looms still. -->
+
 {% load staticfiles %}
 
 {% extends "brennanlooms_app/index.html" %}
 
-{% block title %}{{contact.company_name}} | {{ site_title|default:_('Brennan Looms') }}{% endblock %}
+{% block title %}{{contact.company_name}} | {{ contact.company_name }}{% endblock %}
 
 {% block branding %}
 <h1 id="site-name"><a href="{% url 'brennanlooms_app:index' %}">{{ site_header|default:_('Brennan Looms') }}</a></h1>

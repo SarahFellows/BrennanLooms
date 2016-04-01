@@ -1,40 +1,9 @@
+document.getElementById("company-info").addEventListener('click', changeAbout); 
+document.getElementById("products").addEventListener('click', changeLooms); 
+document.getElementById("links").addEventListener('click', changeLinks); 
+document.getElementById("contact-info").addEventListener('click', changeContact); 
+document.getElementById("cart").addEventListener('click', changeCart); 
 
-
-document.getElementById("company-info").addEventListener('click', loadAboutPage); 
-document.getElementById("products").addEventListener('click', loadLoomsPage); 
-document.getElementById("links").addEventListener('click', loadLinksPage); 
-document.getElementById("contact-info").addEventListener('click', loadContactPage); 
-document.getElementById("cart").addEventListener('click', loadCartPage); 
-
-
-
-//Create a function to call the about page so it generated when the event listener is clicked
-function loadAboutPage(event){
-    // stop the default action of an element from happening
-    event.preventDefault(); 
-    // AJAX request to the server 
-    $.ajax({
-        url: "about", 
-        success: function(data){
-            $("#content-box").html(data); 
-            // console.log("About Success")
-        }
-    }); 
-}; 
-
-//Create a function to call the looms page when link is clicked on 
-function loadLoomsPage(event){
-    event.preventDefault(); 
-       $.ajax({
-        url: "looms", 
-        success: function(data){
-            $("#content-box").html(data); 
-        
-            // This is the button for the cart 
-            document.addEventListener('click', cartPage)
-            }
-        })
-};
 
 // this calls the cart page to store the pk value and pass it in sessionStorage
 function cartPage(event){
@@ -66,10 +35,63 @@ function addToSessionStorage(id){
 
 }
 
+function changeAbout(event) {
+    // stop the default action of an element from happening
+    if (event) {
+        event.preventDefault(); 
+    }
+    
+    // This adds the about to the url in the browser
+    window.location = "#About"
+}
+
+//Create a function to call the about page so it generated when the event listener is clicked
+function loadAboutPage(){
+    // AJAX request to the server 
+    $.ajax({
+        url: "about", 
+        success: function(data){
+            $("#content-box").html(data); 
+        }
+    }); 
+}; 
+
+function changeLooms(event) {
+    // stop the default action of an element from happening
+    if (event) {
+        event.preventDefault(); 
+    }
+    
+    // This adds the about to the url in the browser
+    window.location = "#Looms"
+}
+
+//Create a function to call the looms page when link is clicked on 
+function loadLoomsPage(){
+   $.ajax({
+    url: "looms", 
+    success: function(data){
+        $("#content-box").html(data); 
+    
+        // This is the button for the cart 
+        document.addEventListener('click', cartPage)
+        history.pushState
+        }
+    })
+};
+
+function changeLinks(event) {
+    // stop the default action of an element from happening
+    if (event) {
+        event.preventDefault(); 
+    }
+    
+    // This adds the about to the url in the browser
+    window.location = "#Links"
+}
+
 //Create a function to call the links page when link is clicked on 
 function loadLinksPage(event){
-    event.preventDefault(); 
-
     $.ajax({
         url: "links", 
         success: function(data){
@@ -78,10 +100,18 @@ function loadLinksPage(event){
     }); 
 }; 
 
+function changeContact(event) {
+    // stop the default action of an element from happening
+    if (event) {
+        event.preventDefault(); 
+    }
+    
+    // This adds the about to the url in the browser
+    window.location = "#Contact"
+}
+
 //Create a function to call the contact page when link is clicked on 
 function loadContactPage(event){
-    event.preventDefault(); 
-
     $.ajax({
         url: "contact", 
         success: function(data){
@@ -90,10 +120,15 @@ function loadContactPage(event){
     }); 
 }
 
+function changeCart(event) {
+    if (event) {
+        event.preventDefault(); 
+    }
+    window.location = "#Cart"
+}
+
 // Create a function that will load the Cart Page 
 function loadCartPage(event){
-    event.preventDefault(); 
-
     // if value in session storage is null, it cant be passed in the brower because its not a string
     // double bars = or 
     currentList = (sessionStorage.getItem("products") || "[]")
@@ -106,5 +141,31 @@ function loadCartPage(event){
     }); 
 }
 
+// anytime the value after the has changes, run this function
+window.onhashchange = navigate;
+window.onload = navigate;
+
+function navigate() {
+    // get the hash - includes the pound - get all the things in the hash from one to the end, ignoring the #
+    var link = window.location.hash.substr(1)
+    if (link === "About"){
+        loadAboutPage()
+    }
+    else if (link === "Looms") {
+        loadLoomsPage()
+    }
+    else if (link === "Links") {
+        loadLinksPage()
+    }
+    else if (link === "Contact"){
+        loadContactPage()
+    }
+    else if (link === "Cart") {
+        loadCartPage()
+    }
+    else {
+
+    }
+}
 
 

@@ -40,14 +40,14 @@ def looms_page(request):
 
 
 def links_page(request):
-    """ build a conext object to grab info from links_page model from database """
+    """ build a context object to grab info from links_page model from database """
 
     #create a variable to put all the link objects into 
     links = WebPageLink.objects.all()
     return render(request, 'brennanlooms_app/links.html', {"links": links})
 
 def contact_page(request):
-    """ Build a conext object to grab info from contacts model from database """
+    """ Build a context object to grab info from contacts model from database """
 
     #create a variable to put the contact info object into 
     contact = CompanyInfo.objects.all()[0]
@@ -55,7 +55,7 @@ def contact_page(request):
     return render(request, 'brennanlooms_app/contact.html', {"contact": contact})
 
 def cart_page(request):
-    """ Build a conext object to grab HTML info for cart page"""
+    """ Build a context object to grab HTML info for cart page"""
 
     # products is the id number that is generated in the javascript
     # Eval says "take this input and interpret into whatever it looks like" i.e. if it is a list, string, etc.
@@ -63,7 +63,7 @@ def cart_page(request):
     
     # if id list is empty, then return the error warning
     if not id_list: 
-        return HttpResponse("Your cart is empty. Please choose a loom you wish to purchase.")
+        return HttpResponse("Your cart is empty. Please return to the Loom page and choose a loom you wish to purchase.")
     else: 
         #.sort will sort the list so all looms will group together (due to number ID's)
         id_list.sort()
