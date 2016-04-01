@@ -1,3 +1,6 @@
+<!-- This is the cart page, the least build out section. I plan to make this cart more robust, allowing 
+customers to add, remove and alter the cart once they get there, will a option to pay or "buy all" when they are ready. -->
+
 
 {% load staticfiles %}
 
@@ -10,38 +13,36 @@
 
     <div id="show-cart" class="show-cart"> 
 
-    {% for item in products %}
+        {% for item in products %}
 
-    <div class="item"> 
+            <div class="item"> 
 
-        <h3> {{ item.product_name}} </h3> 
+                <p class="product_name"> {{ item.product_name }} {{ item.loom_cost }} </p> 
+
+                <!-- This is the PayPal button that will be changed in the future - temp spot for MVP -->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="jessemcbrennan@gmail.com">
+                <input type="hidden" name="lc" value="US">
+                <input type="hidden" name="item_name" value={{item.product_name}}>
+                <input type="hidden" name="item_number" value={{item.loom.pk}}>
+                <input type="hidden" name="amount" value={{item.loom_cost}}>
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="button_subtype" value="services">
+                <input type="hidden" name="no_note" value="0">
+                <input type="hidden" name="tax_rate" value="0.000">
+                <input type="hidden" name="shipping" value="0.00">
+                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_SM.gif:NonHostedGuest">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+
+            </div> 
+
+        {% endfor %}
 
     </div> 
 
-    {% endfor %}
-
-
-
-
-
-<!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="sarahlynnf6@yahoo.com">
-<input type="hidden" name="lc" value="US">
-<input type="hidden" name="item_name" value="dgfd">
-<input type="hidden" name="amount" value="46.00">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="shipping" value="0.00">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
- -->
-
-
-
-    
-    <script src="/static/brennanlooms_app/cart.js" ></script>
+ 
+    <script src="/static/brennanlooms_app/brennanlooms.js" ></script>
 

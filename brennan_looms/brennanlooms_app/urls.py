@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^looms$', looms_page, name='looms_page'), 
     url(r'^links$', links_page, name='links_page'), 
     url(r'^contact$', contact_page, name='contact_page'), 
+    #this one had no $ after cart because the url needs the product id with it 
     url(r'^cart', cart_page, name='cart_page'),
 
 ]

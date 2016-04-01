@@ -64,14 +64,14 @@ function addToSessionStorage(id){
 
 //Create a function to call the links page when link is clicked on 
 function loadLinksPage(event){
-    console.log("This is for the links button"); 
+    // console.log("This is for the links button"); 
     event.preventDefault(); 
 
     $.ajax({
         url: "links", 
         success: function(data){
-            $("#content-box").html(data); 
-            console.log("Links Success!!")
+            $("#content-box").html(data);
+            // console.log("Links Success!!")
         }
     }); 
 }; 
@@ -84,20 +84,24 @@ function loadContactPage(event){
         url: "contact", 
         success: function(data){
             $("#content-box").html(data); 
-            console.log("contact page success!")
+            // console.log("contact page success!")
         }
     }); 
 }
 
+// Create a function that will load the Cart Page 
 function loadCartPage(event){
     event.preventDefault(); 
-    currentList = (sessionStorage.getItem("products"))
+
+    // if value in session storage is null, it cant be passed in the brower because its not a string
+    // double bars = or 
+    currentList = (sessionStorage.getItem("products") || "[]")
     $.ajax({
         url: "cart", 
         data: {"products": currentList}, 
         success: function(data){
             $("#content-box").html(data); 
-            console.log("cart page success!")
+            //console.log("cart page success!")
         }
     }); 
 }

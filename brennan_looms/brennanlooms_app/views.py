@@ -61,16 +61,26 @@ def contact_page(request):
 def cart_page(request):
     """ Build a conext object to grab HTML info for cart page"""
 
-    # Eval says "take this input and interpret into whatever it looks like"
-    id_list = eval(request.GET.get("products"))
-    id_list.sort()
-    # uniqueProducts = set(productList)
-    product_list = []
-    for item in id_list:
-        product = Product.objects.get(pk=item)
-        product_list.append(product)
-    #renders the cart page
-    return render(request, 'brennanlooms_app/cart.html', {"products": product_list})
+    # products is the id number that is generated in the javascript
+    # Eval says "take this input and interpret into whatever it looks like" i.e. if it is a list, string, etc.
+    id_list = eval(request.GET.get("products")) 
+    
+    # if id list is empty, then return the error warning
+    if not id_list: 
+        return HttpResponse("Your cart is empty. Please choose a loom you wish to purchase.")
+    else: 
+        #.sort will sort the list so all looms will group together (due to number ID's)
+        id_list.sort()
+        # create an empty list to append each item to 
+        product_list = []
+        #make a for loop that takes every items in the sorted id_list 
+        for item in id_list:
+            #gets the object that has a primary key from the model - object.get is a built in for python that does magical things.
+            product = Product.objects.get(pk=item)
+            product_list.append(product)
+        #renders the cart page
+        return render(request, 'brennanlooms_app/cart.html', {"products": product_list})
+        
 
 
 
