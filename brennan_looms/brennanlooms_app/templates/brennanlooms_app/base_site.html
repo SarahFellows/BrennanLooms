@@ -1,0 +1,11 @@
+{% load staticfiles %}
+
+{% extends "brennanlooms_app/index.html" %}
+
+{% block title %}{{contact.company_name}} | {{ site_title|default:_('Brennan Looms') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'brennanlooms_app:index' %}">{{ site_header|default:_('Brennan Looms') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

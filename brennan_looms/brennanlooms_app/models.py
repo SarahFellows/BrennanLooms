@@ -9,6 +9,7 @@ from django.contrib.auth.models import AbstractBaseUser
 
 # Create your models here.
 
+
 class User(AbstractBaseUser):
     """ Customer user class """
 
@@ -24,8 +25,8 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
 
     #unicode - method to display a human-readable representation of our User model object. 
-    def __unicode__(self):
-        return self.email
+    def __str__(self):
+        return str(self.email)
 
 
 class LoomUser(models.Model):
@@ -68,6 +69,7 @@ class Order(models.Model):
     products = models.ManyToManyField("Product") 
 
 class Product(models.Model):
+    """ This is the model that builds the details of each loom"""
 
     product_name = models.CharField(max_length=300, default="The Loom")
     loom_description = models.TextField(max_length=1000)
@@ -80,14 +82,14 @@ class Product(models.Model):
       return self.product_name
 
 class CompanyInfo(models.Model):
+    """ This is where all the details are for company contact """
 
     company_name = models.TextField(max_length=1000)
     contact_name = models.TextField(max_length=100)
     contact_address = models.TextField(max_length=200, default="3507 NE 7th Ave, Portland, Oregon, 97212")
     contact_email = models.EmailField(max_length=254)
-    #contact_phone = models.CharField(max_length=12)
 
-    # This is the online solution 
+    # This is the online solution - not idea for final product but acting as a placeholder for now. Currently not displaying at "-" between numbers
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], blank=True, max_length=12, default="541-915-2523") # validators should be a list
 

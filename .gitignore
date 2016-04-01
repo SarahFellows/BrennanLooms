@@ -8,3 +8,9 @@ migrations/
 
 #Virtual Environment 
 venv_brennanlooms/
+
+#Ignoring local settings for Django project 
+local_settings.py
+
+#Ignoring DS Store 
+.DS_Store

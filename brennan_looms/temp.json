@@ -1,0 +1,134 @@
+[
+{
+  "model": "brennanlooms_app.loomuser",
+  "pk": 1,
+  "fields": {
+    "name": "Sarah Fellows",
+    "shipping_address": "4413 NE Killingsworth Unit 109",
+    "security_quest": "Whats your Moms name?",
+    "user": 1
+  }
+},
+{
+  "model": "brennanlooms_app.order",
+  "pk": 1,
+  "fields": {
+    "loom_user_id": 1,
+    "order_status": 1,
+    "cost_total": "200.00",
+    "tracking_info": "USPS 834729749832749327",
+    "shipping_costs": "30.00",
+    "products": [
+      2
+    ]
+  }
+},
+{
+  "model": "brennanlooms_app.product",
+  "pk": 1,
+  "fields": {
+    "product_name": "Free Standing Loom",
+    "loom_description": "(this may be incorrect) This tapestry loom is still readily portable; dismountable; free standing; height adjustment; increased warp tension adjustment; efficient leash (heddle] fittings; and can accommodate a tapestry up to 20 inches wide and more than thirty inches high. It is again constructed of copper parts and designed by me, a tapestry maker of long, diverse experience The loom comes with notes, diagrams, assembly and adjustment guide.",
+    "loom_dimension": "Weaving Width 18\u201d\r\nWeaving Heigh 26-33\u201d(Adjustable)\r\nTotal width 22\u201d\r\nTotal Heigh 60\u201d (6\u201d removable legs)",
+    "loom_cost": "$230",
+    "shipping": "$30"
+  }
+},
+{
+  "model": "brennanlooms_app.product",
+  "pk": 2,
+  "fields": {
+    "product_name": "Small Frame Loom",
+    "loom_description": "(still need this from the client. Blah blah blah, something in here to fill the space until he gets me the content, blah blah blah blah blah blah blah blah blah blah blah blah blah)",
+    "loom_dimension": "Weaving width 10\u201d \r\nWeaving Height 30\"",
+    "loom_cost": "$130.00",
+    "shipping": "Shipping: $30"
+  }
+},
+{
+  "model": "brennanlooms_app.product",
+  "pk": 3,
+  "fields": {
+    "product_name": "Black Pipe Loom",
+    "loom_description": "blah blah blah need this from the client still blah blah blah this is a filler so I can edit this information later blah blah blah blah blah blah blah blah monkey should be purple and unicorns are real blah blah blah blah",
+    "loom_dimension": "~7ft. x 4 1/2' x 3\u2019",
+    "loom_cost": "$399",
+    "shipping": "Shipping: $30"
+  }
+},
+{
+  "model": "brennanlooms_app.companyinfo",
+  "pk": 1,
+  "fields": {
+    "company_name": "Brennan Looms",
+    "contact_name": "Jesse Brennan",
+    "contact_address": "3507 NE 7th Ave, Portland, Oregon, 97212",
+    "contact_email": "brennanlooms@gmail.com",
+    "phone_number": "5419152523"
+  }
+},
+{
+  "model": "brennanlooms_app.aboutpage",
+  "pk": 1,
+  "fields": {
+    "about_archie": "Archie Brennan has been a leading figure in tapestry for more than 25 years. His work is in major art museums around the world and he has taught and lectured at universities and art schools since 1962.He began a 7 year full-time tapestry apprenticeship in 1948 at the Dovecot in Edinburgh,Scotland.",
+    "archie_quote": "\u201cIt is more than twenty years since I first designed and offered, free, for personal use only, this design for a basic copper tapestry loom with warp tension adjustment and possibilities for many developments. It was an inexpensive loom for beginners, for test weaving and small works. A number of copies- with questionable improvements are now being marketed elsewhere.\u201d - Archie Brennan",
+    "about_jesse": "Jesse, Archie\u2019s Son, grew up in Hawaii and spent the majority of his youth in the studio surrounded by weaving. One of his earliest memories is cutting the warp of a nearly finished tapestry while his dad has his back turned. Although he is not a weaver per se, it is safe to say he has spent more time near looms than most people. Jesse has picked up the thread his father started, taking up the craft of loom building.\r\n\r\nJesse studied Urban Planning a the University of Oregon. He currently lives and works in Portland, Oregon.",
+    "family_photo": "1"
+  }
+},
+{
+  "model": "brennanlooms_app.webpagelink",
+  "pk": 1,
+  "fields": {
+    "link_image": "",
+    "link_text": "Learn about Archie Brennan & Susan Martin Maffe",
+    "link_field": "http://www.brennan-maffei.com"
+  }
+},
+{
+  "model": "brennanlooms_app.webpagelink",
+  "pk": 2,
+  "fields": {
+    "link_image": "",
+    "link_text": "The Archie Brennan Project",
+    "link_field": "http://www.archiebrennanproject.com"
+  }
+},
+{
+  "model": "brennanlooms_app.webpagelink",
+  "pk": 3,
+  "fields": {
+    "link_image": "",
+    "link_text": "Dovecot Studios",
+    "link_field": "https://dovecotstudios.com/"
+  }
+},
+{
+  "model": "brennanlooms_app.webpagelink",
+  "pk": 4,
+  "fields": {
+    "link_image": "",
+    "link_text": "Archie Brennan \"Weaving Illusions\" Part 1",
+    "link_field": "https://www.youtube.com/watch?v=ZVMKcixqoUc"
+  }
+},
+{
+  "model": "brennanlooms_app.webpagelink",
+  "pk": 5,
+  "fields": {
+    "link_image": "",
+    "link_text": "Archie Brennan \"Weaving Illusions\" Part 2",
+    "link_field": "https://www.youtube.com/watch?v=z24lOmNxsy4"
+  }
+},
+{
+  "model": "brennanlooms_app.webpagelink",
+  "pk": 6,
+  "fields": {
+    "link_image": "",
+    "link_text": "Woven Tapestry Techniques",
+    "link_field": "https://www.youtube.com/watch?v=Ne6WI5uozQs"
+  }
+}
+]
