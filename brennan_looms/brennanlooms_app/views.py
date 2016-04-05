@@ -19,7 +19,6 @@ def about_page(request):
     #this needs to be refactored later, the 0 on the get.all is not ideal 
     # this creates a variable that puts all the objects in the About model into one variable
     temp = AboutPage.objects.all()[0]
-
     return render(request, 'brennanlooms_app/about.html', {"about": temp})
 
 def looms_page(request):

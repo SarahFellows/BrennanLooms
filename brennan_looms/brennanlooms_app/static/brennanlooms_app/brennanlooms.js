@@ -17,7 +17,7 @@ function cartPage(event){
 //This function operates when the user clicks the add to cart button, we grab the value object for the products 
     //and write it to sessionStorage
 function addToSessionStorage(id){
-    // create a variable that holds the parsed data held in the sessionStorage 
+    // create a variable that holds the parsed data held in the sessionStorage//retrieve data
     currentList = JSON.parse(sessionStorage.getItem("products"))
     // console.log(typeof(currentList))
     // if the sessionStorage doesn't hold any strings/objects, then create an empty string so 
@@ -29,8 +29,8 @@ function addToSessionStorage(id){
     currentList.push(Number(id))
 
     // Take the numbers pushed to currentList, make them a string (because thats the  
-        //way the data can be accepted in sessionSTorage), give it a name to refer the 
-        //value to and set it to sessionStorage
+        //way the data can be accepted in sessionStorage), give it a name to refer the value to and set it to sessionStorage
+        // store data
     sessionStorage.setItem("products", JSON.stringify(currentList))
 
 }
@@ -55,6 +55,7 @@ function loadAboutPage(){
         }
     }); 
 }; 
+
 
 function changeLooms(event) {
     // stop the default action of an element from happening
@@ -145,6 +146,7 @@ function loadCartPage(event){
 window.onhashchange = navigate;
 window.onload = navigate;
 
+// This function calls each AJAX function when the page loads
 function navigate() {
     // get the hash - includes the pound - get all the things in the hash from one to the end, ignoring the #
     var link = window.location.hash.substr(1)

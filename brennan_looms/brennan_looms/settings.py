@@ -17,7 +17,6 @@ from .local_settings import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -52,7 +51,7 @@ ROOT_URLCONF = 'brennan_looms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,6 +63,8 @@ TEMPLATES = [
         },
     },
 ]
+
+print(TEMPLATES[0])
 
 WSGI_APPLICATION = 'brennan_looms.wsgi.application'
 
@@ -112,5 +113,4 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 #in other words, its telling Django that on the computer I can find the static file at... 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
 
