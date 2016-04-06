@@ -69,10 +69,7 @@ class CompanyInfo(models.Model):
     contact_name = models.TextField(max_length=100)
     contact_address = models.TextField(max_length=200, default="3507 NE 7th Ave, Portland, Oregon, 97212")
     contact_email = models.EmailField(max_length=254)
-
-    # This is the online solution - not idea for final product but acting as a placeholder for now. Currently not displaying at "-" between numbers
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-    phone_number = models.CharField(validators=[phone_regex], blank=True, max_length=12, default="541-915-2523") # validators should be a list
+    phone_number = models.CharField(blank=True, max_length=15, default="503-893-5290")
 
     #overside the string function for the admin portal so it displays the company name instead.
     def __str__(self):
@@ -86,6 +83,7 @@ class AboutPage(models.Model):
     about_jesse = models.TextField(max_length=1000)
     family_photo = models.ImageField(upload_to='images', blank=True)
 
+
 class WebPageLink(models.Model):
     """ This is where the resoucres and links information is stored to be displayed on website. """
 
@@ -94,7 +92,7 @@ class WebPageLink(models.Model):
     link_field = models.URLField(max_length=50)
     link_info = models.TextField(max_length=200, blank=True)
 
-    # Overrite the string object so it shows which links/resources it is referencing on the adminsite 
+    # Overrite the string object so it shows which links/resources it is referencing on the admin site 
     def __str__(self):
       return self.link_text
 
@@ -110,6 +108,3 @@ class Image(models.Model):
 
     def __str__(self):
       return self.photo_name
-
-
-

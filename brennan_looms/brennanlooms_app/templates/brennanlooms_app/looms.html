@@ -8,6 +8,7 @@
 
 <h1> Looms </h1> 
 
+
 <!-- create a loop that loops through the looms variable created in views.py in def looms_page -->
 {% for loom in looms %}
 
@@ -17,7 +18,7 @@
             the other loop so that it stays with the product.-->
     {% for image in loom.images.all %}
 
-        <img src="{{image.photo.url}}"> </img>
+        <img class="product_image" src="{{image.photo.url}}" />
 
     {% endfor %}
 
@@ -37,6 +38,7 @@
 
 {% endfor %}
 
+<div id="image_show" class="display_none"><img src="" /></div>
     
 
 

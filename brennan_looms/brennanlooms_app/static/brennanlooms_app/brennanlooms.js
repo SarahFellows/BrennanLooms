@@ -1,8 +1,8 @@
-document.getElementById("company-info").addEventListener('click', changeAbout); 
-document.getElementById("products").addEventListener('click', changeLooms); 
-document.getElementById("links").addEventListener('click', changeLinks); 
-document.getElementById("contact-info").addEventListener('click', changeContact); 
-document.getElementById("cart").addEventListener('click', changeCart); 
+document.getElementById("company-info").addEventListener('click', changeAbout);
+document.getElementById("products").addEventListener('click', changeLooms);
+document.getElementById("links").addEventListener('click', changeLinks);
+document.getElementById("contact-info").addEventListener('click', changeContact);
+document.getElementById("cart").addEventListener('click', changeCart);
 
 
 // this calls the cart page to store the pk value and pass it in sessionStorage
@@ -76,6 +76,9 @@ function loadLoomsPage(){
     
         // This is the button for the cart 
         document.addEventListener('click', cartPage)
+        //to everything on this selector, bind a click listener and run this function
+        $(".product_image").bind("click", photoPop);
+        image_show.addEventListener('click', closePhotoviewing); 
         history.pushState
         }
     })
@@ -134,12 +137,12 @@ function loadCartPage(event){
     // double bars = or 
     currentList = (sessionStorage.getItem("products") || "[]")
     $.ajax({
-        url: "cart", 
-        data: {"products": currentList}, 
+        url: "cart",
+        data: {"products": currentList},
         success: function(data){
-            $("#content-box").html(data); 
+            $("#content-box").html(data);
         }
-    }); 
+    });
 }
 
 // anytime the value after the has changes, run this function
@@ -149,25 +152,58 @@ window.onload = navigate;
 // This function calls each AJAX function when the page loads
 function navigate() {
     // get the hash - includes the pound - get all the things in the hash from one to the end, ignoring the #
-    var link = window.location.hash.substr(1)
+    var link = window.location.hash.substr(1);
     if (link === "About"){
-        loadAboutPage()
+        loadAboutPage();
     }
     else if (link === "Looms") {
-        loadLoomsPage()
+        loadLoomsPage();
     }
     else if (link === "Links") {
-        loadLinksPage()
+        loadLinksPage();
     }
     else if (link === "Contact"){
-        loadContactPage()
+        loadContactPage();
     }
     else if (link === "Cart") {
-        loadCartPage()
+        loadCartPage();
     }
     else {
 
     }
 }
+
+
+
+// Create a function that will pop up the image when it is click on in the Product Page 
+function photoPop(event){
+
+    var imageShow = document.getElementById("image_show");
+    imageShow.className = "display_img";
+
+        // taking the element id's first child - img - change pic is the div 
+        //changing the src to reflect the one that is being clicked on
+    imageShow.firstChild.src = event.target.src;
+
+}
+
+//If click outside photo, image disapears - class goes back to display none
+function closePhotoviewing(){
+     // add an event listener to the div 
+    var imageDisapear = document.getElementById("image_show");
+   
+    // if we click anywhere outside the photo... 
+    if (imageDisapear){
+
+        //grab the id from HTML, change class name 
+        imageDisapear.setAttribute("class", "display_none"); 
+    }
+}
+
+
+
+
+
+
 
 
