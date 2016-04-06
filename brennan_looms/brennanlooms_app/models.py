@@ -92,6 +92,7 @@ class WebPageLink(models.Model):
     link_image = models.ImageField(upload_to='images', blank=True)
     link_text = models.TextField(max_length=1000)
     link_field = models.URLField(max_length=50)
+    link_info = models.TextField(max_length=200, blank=True)
 
     # Overrite the string object so it shows which links/resources it is referencing on the adminsite 
     def __str__(self):
