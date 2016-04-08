@@ -92,7 +92,7 @@ class WebPageLink(models.Model):
     link_field = models.URLField(max_length=50)
     link_info = models.TextField(max_length=200, blank=True)
 
-    # Overrite the string object so it shows which links/resources it is referencing on the admin site 
+    # Overrite the string object so it shows which links/resources it is referencing on the admin site
     def __str__(self):
       return self.link_text
 

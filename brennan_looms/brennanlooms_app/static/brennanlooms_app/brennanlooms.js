@@ -196,7 +196,7 @@ function closePhotoviewing(){
     if (imageDisapear){
 
         //grab the id from HTML, change class name 
-        imageDisapear.setAttribute("class", "display_none"); 
+        imageDisapear.setAttribute("class", "display_none");
     }
 }
 
