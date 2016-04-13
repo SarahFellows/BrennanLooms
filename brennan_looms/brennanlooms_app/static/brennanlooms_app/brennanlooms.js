@@ -1,4 +1,4 @@
-document.getElementById("company-info").addEventListener('click', changeAbout);
+    document.getElementById("company-info").addEventListener('click', changeAbout);
 document.getElementById("products").addEventListener('click', changeLooms);
 document.getElementById("links").addEventListener('click', changeLinks);
 document.getElementById("contact-info").addEventListener('click', changeContact);
@@ -78,6 +78,7 @@ function loadLoomsPage(){
         document.addEventListener('click', cartPage)
         //to everything on this selector, bind a click listener and run this function
         $(".product_image").bind("click", photoPop);
+        $(".primary").bind("click", photoPop);
         image_show.addEventListener('click', closePhotoviewing); 
         history.pushState
         }

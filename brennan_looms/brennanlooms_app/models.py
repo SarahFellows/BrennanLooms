@@ -108,3 +108,6 @@ class Image(models.Model):
 
     def __str__(self):
       return self.photo_name
+
+    class Meta:
+        ordering = ['-primary_img']

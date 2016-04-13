@@ -14,15 +14,23 @@
 
     <div class="loom-product">
 
+        <p id="product-name"> {{loom.product_name}} </p> 
+
     <!-- create a loop that loops through the loom images so they appear no matter how many there are, inside 
             the other loop so that it stays with the product.-->
     {% for image in loom.images.all %}
 
+        {% if image.primary_img %} 
+
+        <img class="primary" src="{{image.photo.url}}" />
+
+        {% else %}
+
         <img class="product_image" src="{{image.photo.url}}" />
 
-    {% endfor %}
+        {% endif %}
 
-        <p id="product-name"> {{loom.product_name}} </p> 
+    {% endfor %}
 
         <p id="loom-description"> {{loom.loom_description}} </p> 
 

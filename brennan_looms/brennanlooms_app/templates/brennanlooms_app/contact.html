@@ -1,6 +1,10 @@
+{% load staticfiles %}
+
 <h1> Contact Us!</h1> 
 
-<p id="company_name"> {{contact.company_name}} </p> 
+<div class="contact">  
+
+<!-- <p id="company_name"> {{contact.company_name}} </p>  -->
 
 <p id="contact_name"> {{contact.contact_name}} </p> 
 
@@ -9,3 +13,7 @@
 <p id="contact_email"> {{contact.contact_email}} </p>
 
 <p id="phone_number"> {{contact.phone_number}} </p>
+
+<img src="{% static 'brennanlooms_app/images/manusingloom2.png' %}" id="archie-drawing" alt="Drawing by Archie Brennan">
+
+</div> 

@@ -27,15 +27,15 @@ def looms_page(request):
     #create a variable to put all the product objects into. Product is the model from models.py
     looms = Product.objects.all()
 
-    #create a empty list to store the list of loom images in
-    images = []
+    # #create a empty list to store the list of loom images in
+    # images = []
 
-    #create a loop that loops through all the images and appends them to the empty list 
-    for loom in looms: 
-        images.append(loom.images.all)
-    print(images)
+    # #create a loop that loops through all the images and appends them to the empty list 
+    # for loom in looms: 
+    #     images.append(loom.images.all)
+    # print(images)
 
-    return render(request, 'brennanlooms_app/looms.html', {"looms": looms, "images": images})
+    return render(request, 'brennanlooms_app/looms.html', {"looms": looms})
 
 
 def links_page(request):

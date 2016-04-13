@@ -27,9 +27,15 @@ body {
 
 
 h1{
-    font-weight: 900;   
+    font-weight: 900;
+    font-size: 40px;   
+    text-align: center; 
 }
 
+.contact{
+    text-align: center;
+    font-weight: bold; 
+}
 
 a {
     text-decoration: none; 
@@ -67,10 +73,48 @@ ul {
     background-color: #DDDDDD; 
 }
 
+.primary {
+    width: 200px;
+    height: 300px;
+    border: none; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    border-radius: 10px;
+}
+
+/*this needs to be edited because the bottom looms need to center - talk to Jesse first*/
+.product_image{
+    display: inline-block;
+    margin-left: center;
+    margin-right: center; 
+    padding: 5%;
+    width: 100px; 
+    height: 200px; 
+    border-radius: 10px;
+    }
+
+
 #product-name {
     color: #E7AE52;
     font-weight: bold;
     font-size: 150%; 
+    text-align: center; 
+}
+
+.group_photo {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+#quote{
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px; 
+
 }
 
 #link-text{
@@ -83,6 +127,9 @@ ul {
     display: block;
     margin-left: auto; 
     margin-right: auto;
+    border-radius: 25%;
+    width: 200px; 
+    height: 300px; 
 }
 
 #logo{
@@ -165,3 +212,9 @@ ul {
     border-bottom: 40px solid #fff;
     border-radius: 2px;
     background-color: #fff;
+}
+
+footer {
+    text-align: center; 
+
+}
