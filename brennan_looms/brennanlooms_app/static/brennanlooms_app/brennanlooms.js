@@ -1,9 +1,12 @@
-    document.getElementById("company-info").addEventListener('click', changeAbout);
+// document.getElementById("logo").addEventListener('click', brennanlooms_app);
+window.onload = rotateImages;
+document.getElementById("company-info").addEventListener('click', changeAbout);
 document.getElementById("products").addEventListener('click', changeLooms);
 document.getElementById("links").addEventListener('click', changeLinks);
 document.getElementById("contact-info").addEventListener('click', changeContact);
 document.getElementById("cart").addEventListener('click', changeCart);
 
+// --------------------------- Cart --------------------------- //
 
 // this calls the cart page to store the pk value and pass it in sessionStorage
 function cartPage(event){
@@ -32,17 +35,40 @@ function addToSessionStorage(id){
         //way the data can be accepted in sessionStorage), give it a name to refer the value to and set it to sessionStorage
         // store data
     sessionStorage.setItem("products", JSON.stringify(currentList))
-
 }
+
+function changeCart(event) {
+    if (event) {
+        event.preventDefault(); 
+    }
+    // This adds the cart to the url in the browser
+    window.location = "#Cart"
+}
+
+// Create a function that will load the Cart Page 
+function loadCartPage(event){
+    // if value in session storage is null, it cant be passed in the brower because its not a string
+    // double bars = or 
+    currentList = (sessionStorage.getItem("products") || "[]")
+    $.ajax({
+        url: "cart",
+        data: {"products": currentList},
+        success: function(data){
+            $("#content-box").html(data);
+        }
+    });
+}
+
+// --------------------------- About --------------------------- //
 
 function changeAbout(event) {
     // stop the default action of an element from happening
     if (event) {
-        event.preventDefault(); 
+        event.preventDefault();
     }
     
     // This adds the about to the url in the browser
-    window.location = "#About"
+    window.location = "#About"; 
 }
 
 //Create a function to call the about page so it generated when the event listener is clicked
@@ -51,11 +77,12 @@ function loadAboutPage(){
     $.ajax({
         url: "about", 
         success: function(data){
-            $("#content-box").html(data); 
+            $("#content-box").html(data);
         }
     }); 
-}; 
+}
 
+// --------------------------- Product/Looms --------------------------- //
 
 function changeLooms(event) {
     // stop the default action of an element from happening
@@ -82,98 +109,8 @@ function loadLoomsPage(){
         image_show.addEventListener('click', closePhotoviewing); 
         history.pushState
         }
-    })
-};
-
-function changeLinks(event) {
-    // stop the default action of an element from happening
-    if (event) {
-        event.preventDefault(); 
-    }
-    
-    // This adds the about to the url in the browser
-    window.location = "#Links"
-}
-
-//Create a function to call the links page when link is clicked on 
-function loadLinksPage(event){
-    $.ajax({
-        url: "links", 
-        success: function(data){
-            $("#content-box").html(data);
-        }
-    }); 
-}; 
-
-function changeContact(event) {
-    // stop the default action of an element from happening
-    if (event) {
-        event.preventDefault(); 
-    }
-    
-    // This adds the about to the url in the browser
-    window.location = "#Contact"
-}
-
-//Create a function to call the contact page when link is clicked on 
-function loadContactPage(event){
-    $.ajax({
-        url: "contact", 
-        success: function(data){
-            $("#content-box").html(data); 
-        }
-    }); 
-}
-
-function changeCart(event) {
-    if (event) {
-        event.preventDefault(); 
-    }
-    window.location = "#Cart"
-}
-
-// Create a function that will load the Cart Page 
-function loadCartPage(event){
-    // if value in session storage is null, it cant be passed in the brower because its not a string
-    // double bars = or 
-    currentList = (sessionStorage.getItem("products") || "[]")
-    $.ajax({
-        url: "cart",
-        data: {"products": currentList},
-        success: function(data){
-            $("#content-box").html(data);
-        }
     });
 }
-
-// anytime the value after the has changes, run this function
-window.onhashchange = navigate;
-window.onload = navigate;
-
-// This function calls each AJAX function when the page loads
-function navigate() {
-    // get the hash - includes the pound - get all the things in the hash from one to the end, ignoring the #
-    var link = window.location.hash.substr(1);
-    if (link === "About"){
-        loadAboutPage();
-    }
-    else if (link === "Looms") {
-        loadLoomsPage();
-    }
-    else if (link === "Links") {
-        loadLinksPage();
-    }
-    else if (link === "Contact"){
-        loadContactPage();
-    }
-    else if (link === "Cart") {
-        loadCartPage();
-    }
-    else {
-
-    }
-}
-
 
 
 // Create a function that will pop up the image when it is click on in the Product Page 
@@ -201,6 +138,152 @@ function closePhotoviewing(){
     }
 }
 
+// --------------------------- Links --------------------------- //
+
+function changeLinks(event) {
+    // stop the default action of an element from happening
+    if (event) {
+        event.preventDefault(); 
+    }
+    
+    // This adds the about to the url in the browser
+    window.location = "#Links"
+}
+
+//Create a function to call the links page when link is clicked on 
+function loadLinksPage(event){
+    $.ajax({
+        url: "links", 
+        success: function(data){
+            $("#content-box").html(data);
+        }
+    }); 
+}; 
+
+// --------------------------- Contact --------------------------- //
+
+function changeContact(event) {
+    // stop the default action of an element from happening
+    if (event) {
+        event.preventDefault(); 
+    }
+    
+    // This adds the about to the url in the browser
+    window.location = "#Contact"
+}
+
+//Create a function to call the contact page when link is clicked on 
+function loadContactPage(event){
+    $.ajax({
+        url: "contact", 
+        success: function(data){
+            $("#content-box").html(data); 
+        }
+    }); 
+}
+
+// // ------------- Home page ------------------//
+
+// function homePage(){ 
+//     // stop the default action of an element from happening
+//     if (event) {
+//         event.preventDefault();
+//     }
+    
+//     // This adds the about to the url in the browser
+//     window.location = "#Home"; 
+// }
+
+// //Create a function to call the about page so it generated when the event listener is clicked
+// function loadHomePage(){
+//     // AJAX request to the server 
+//     $.ajax({
+//         url: "home", 
+//         success: function(data){
+//             $("#content-box").html(data);
+//         }
+//     }); 
+// }
+
+// --------------------------- Navigation and browser control --------------------------- //
+
+// anytime the value after the has changes, run this function
+window.onhashchange = navigate;
+window.onload = navigate;
+
+// This function calls each AJAX function when the page loads
+function navigate() {
+    // get the hash - includes the pound - get all the things in the hash from one to the end, ignoring the #
+    var link = window.location.hash.substr(1);
+    if (link === "About"){
+        loadAboutPage();
+    }
+    else if (link === "Looms") {
+        loadLoomsPage();
+    }
+    else if (link === "Links") {
+        loadLinksPage();
+    }
+    else if (link === "Contact"){
+        loadContactPage();
+    }
+    else if (link === "Cart") {
+        loadCartPage();
+    }
+    else if (link === "Home") {
+        loadHomePage();
+    }
+    else {
+
+    }
+}
+
+
+
+// ------------- Home's rotating images ------------------//
+
+
+
+//function that rotates the images every 10 seconds 
+setInterval(rotateImages, 2000); 
+
+// need to track the value of i outside the function
+i = 1; 
+
+//create function to rotate the images in the jumbotron
+function rotateImages(){ 
+
+    // grab the id from the HTML 
+    var jumbo = document.getElementById("jumbotron");
+
+    var imageStrBeg = "url('images/pdxcg_"; 
+    var imageStrEnd = ".jpg');"; 
+    
+
+    // if the number if less than 9, add a 0 to it....
+    if (i <= 9){
+        // add 0 to the number 
+        i = "0" + i; 
+    }; 
+
+    //concatinate the string together to make the image number increment and 
+    // hold into variable
+    var singleImage = (imageStrBeg + i + imageStrEnd)
+    //console.log(singleImage)
+    
+
+    //change jumbo src to equal the concatinated equasion 
+    jumbo.style.backgroundImage = singleImage
+
+    //if i - the number of photo - is equal to 10, change it to equal one
+    // so it loops back 
+    if (i === 10){
+        i = 1
+    }
+
+    // increment each photo 
+    i++
+}
 
 
 
