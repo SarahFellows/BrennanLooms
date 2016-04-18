@@ -229,9 +229,8 @@ footer {
     width: 400px;
     height: 500px;
     background: url('images/pdxcg_01.jpg'); 
-    background-size: 200px 100px;
+    background-size: 500px 500px;
     background-position: center;
-    border-radius: 2px;
 }
 
 
