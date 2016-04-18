@@ -1,3 +1,5 @@
+ /* ----------------- HOME PAGE ----------------------*/
+
 .page-wrapper {
     width: 100%;
     margin: 0;
@@ -23,6 +25,7 @@ body {
     border-style: solid;
     text-decoration: none; 
     margin: 2%; 
+    padding: 3%;
 }
 
 
@@ -30,11 +33,6 @@ h1{
     font-weight: 900;
     font-size: 40px;   
     text-align: center; 
-}
-
-.contact{
-    text-align: center;
-    font-weight: bold; 
 }
 
 a {
@@ -81,6 +79,11 @@ ul {
     margin-left: auto;
     margin-right: auto; 
     border-radius: 10px;
+}
+
+.contact{
+    text-align: center;
+    font-weight: bold; 
 }
 
 /*this needs to be edited because the bottom looms need to center - talk to Jesse first*/
@@ -230,7 +233,11 @@ footer {
     height: 500px;
     background: url('images/pdxcg_01.jpg'); 
     background-size: 500px 500px;
-    background-position: center;
+    background-position: 50% 50%; 
+    padding: 2%;
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
 }
 
 
