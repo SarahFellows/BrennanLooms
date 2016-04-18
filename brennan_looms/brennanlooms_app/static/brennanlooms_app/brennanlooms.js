@@ -1,10 +1,11 @@
-// document.getElementById("logo").addEventListener('click', brennanlooms_app);
-window.onload = rotateImages;
+// document.getElementById("logo").addEventListener('onload', rotateImages);
 document.getElementById("company-info").addEventListener('click', changeAbout);
 document.getElementById("products").addEventListener('click', changeLooms);
 document.getElementById("links").addEventListener('click', changeLinks);
 document.getElementById("contact-info").addEventListener('click', changeContact);
 document.getElementById("cart").addEventListener('click', changeCart);
+
+
 
 // --------------------------- Cart --------------------------- //
 
@@ -243,9 +244,8 @@ function navigate() {
 // ------------- Home's rotating images ------------------//
 
 
-
-//function that rotates the images every 10 seconds 
-setInterval(rotateImages, 2000); 
+//function that rotates the images every 3 seconds 
+setInterval(rotateImages, 3000); 
 
 // need to track the value of i outside the function
 i = 1; 
@@ -269,7 +269,7 @@ function rotateImages(){
     //concatinate the string together to make the image number increment and 
     // hold into variable
     var singleImage = (imageStrBeg + i + imageStrEnd)
-    //console.log(singleImage)
+    console.log(singleImage)
     
 
     //change jumbo src to equal the concatinated equasion 
