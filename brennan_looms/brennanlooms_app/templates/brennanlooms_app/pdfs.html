@@ -12,7 +12,11 @@
 
         <p id="pdf-name"> {{pdf.pdf_name}} </p> 
 
-        <p id="pdf-file"> <a href="{{pdf.pdf_image}}">{{pdf.pdf_image}}</a></p> 
+        {% for i in pdfs %}
+
+        <p id="pdf-file"> <a href="{{i.pdf_image.url}}">{{{i.pdf_image}}</a></p> 
+
+        {% endfor %}
 
     </div> 
 
