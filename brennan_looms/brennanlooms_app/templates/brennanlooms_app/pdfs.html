@@ -8,14 +8,16 @@
 
 {% for pdf in pdfs %}
 
-    <div class="lis-of-pdfs"> 
+    <div class="list-of-pdfs"> 
 
-        <p id="pdf-file"> <a href="{{link.link_field}}">{{link.link_text}}</a></p> 
+        <p id="pdf-name"> {{pdf.pdf_name}} </p> 
 
-        <p id="link-info"> {{link.link_info}}</p> 
-
-        <p id="link-image"> {{link.link_image}} </p> 
+        <p id="pdf-file"> <a href="{{pdf.pdf_image}}">{{pdf.pdf_image}}</a></p> 
 
     </div> 
 
 {% endfor %}
+
+<footer> Click on an image to get a printable drawing with parts. </footer> 
+
+

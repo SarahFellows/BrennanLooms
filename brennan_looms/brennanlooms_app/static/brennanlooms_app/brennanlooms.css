@@ -111,6 +111,24 @@ ul {
     border-bottom-color: #D19D3D;
 }
 
+/* ------------------ Loom Design Page ------------------ */
+
+#pdf-name {
+    text-align: center; 
+
+}
+
+.list-of-pdfs {
+    min-height: 20%; 
+    max-height: 20%; 
+    max-width: 20%; 
+    min-width: 20%; 
+    margin: 2% 2% 2% 2%;
+    margin-left: 20%; 
+    display: inline-block; 
+    vertical-align:top;
+    color: #333333; 
+}
 /* ------------------ Contact Page ------------------ */
 
 .contact{
