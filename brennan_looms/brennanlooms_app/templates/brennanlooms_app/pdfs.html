@@ -4,13 +4,13 @@
 <link rel="stylesheet" href="{% static 'brennanlooms_app/brennanlooms.css' %}">
 </head> 
 
-<h1> Resources </h1> 
+<h1> Loom Designs to Download </h1> 
 
-{% for link in links %}
+{% for pdf in pdfs %}
 
-    <div class="list-of-links"> 
+    <div class="lis-of-pdfs"> 
 
-        <p id="link-text"> <a href="{{link.link_field}}">{{link.link_text}}</a></p> 
+        <p id="pdf-file"> <a href="{{link.link_field}}">{{link.link_text}}</a></p> 
 
         <p id="link-info"> {{link.link_info}}</p> 
 

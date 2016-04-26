@@ -2,13 +2,20 @@
 
 <h1> About Brennan Looms </h1> 
 
-<img src="{% static 'brennanlooms_app/images/groupofmen.jpeg' %}" class="group_photo" alt="Classic photo of group of tapesty makers"/>
+<div class="about-company">
 
-<p id="quote"> {{about.archie_quote}} </p> 
+    <p id="about-jesse" class="about-jesse"> {{about.about_jesse}} </p>
 
-<p id="about-archie"> {{about.about_archie}} </p> 
+    <div class="archie-info">
 
-<p id="about-jesse"> {{about.about_jesse}} </p>
+        <p id="about-archie" class="about-archie"> {{about.about_archie}} </p> 
+
+        <p id="quote" class="quote"> {{about.archie_quote}} </p> 
+
+    </div>
+
+</div>
+
 
 
  

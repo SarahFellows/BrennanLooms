@@ -1,10 +1,10 @@
-// document.getElementById("logo").addEventListener('onload', rotateImages);
+document.getElementById("jumbotron").addEventListener('click', rotateImages);
 document.getElementById("company-info").addEventListener('click', changeAbout);
 document.getElementById("products").addEventListener('click', changeLooms);
 document.getElementById("links").addEventListener('click', changeLinks);
 document.getElementById("contact-info").addEventListener('click', changeContact);
 document.getElementById("cart").addEventListener('click', changeCart);
-
+document.getElementById("pdfs").addEventListener('click', changePDF);
 
 
 // --------------------------- Cart --------------------------- //
@@ -161,6 +161,29 @@ function loadLinksPage(event){
     }); 
 }; 
 
+// --------------------------- PDF/Loom Design Page --------------------------- //
+
+function changePDF(event) {
+     // stop the default action of an element from happening
+    if (event) {
+        event.preventDefault(); 
+    }
+
+    // This adds the pdfs to the url in the browser
+    window.location = "#Pdfs"
+}
+
+//Create a function to call the Loom Design page when link is clicked on 
+function loadLoomDesign(event){
+    $.ajax({
+        url: "pdfs", 
+        success: function(data){
+            $("#content-box").html(data);
+        }
+    }); 
+}; 
+
+
 // --------------------------- Contact --------------------------- //
 
 function changeContact(event) {
@@ -231,8 +254,8 @@ function navigate() {
     else if (link === "Cart") {
         loadCartPage();
     }
-    else if (link === "Home") {
-        loadHomePage();
+    else if (link === "Pdfs") {
+        loadLoomDesign();
     }
     else {
 
@@ -245,7 +268,7 @@ function navigate() {
 
 
 //function that rotates the images every 3 seconds 
-setInterval(rotateImages, 3000); 
+setInterval(rotateImages, 2000); 
 
 // need to track the value of i outside the function
 i = 1; 
@@ -255,9 +278,10 @@ function rotateImages(){
 
     // grab the id from the HTML 
     var jumbo = document.getElementById("jumbotron");
+    console.log(jumbo.style.backgroundImage)
 
-    var imageStrBeg = "url('images/pdxcg_"; 
-    var imageStrEnd = ".jpg');"; 
+    var imageStrBeg = "url('static/brennanlooms_app/images/pdxcg_"; 
+    var imageStrEnd = ".jpg')"; 
     
 
     // if the number if less than 9, add a 0 to it....
@@ -273,17 +297,18 @@ function rotateImages(){
     
 
     //change jumbo src to equal the concatinated equasion 
-    jumbo.style.backgroundImage = singleImage
+    jumbo.style.backgroundImage= singleImage
 
     //if i - the number of photo - is equal to 10, change it to equal one
     // so it loops back 
     if (i === 10){
-        i = 1
+        i = 0 // This should be 0 or you will never see picture 1 - I noticed that, I was going to rename the photos hahahaha thank you!
     }
 
     // increment each photo 
     i++
 }
+
 
 
 

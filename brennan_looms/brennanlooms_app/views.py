@@ -75,8 +75,15 @@ def cart_page(request):
             product_list.append(product)
         #renders the cart page
         return render(request, 'brennanlooms_app/cart.html', {"products": product_list})
-        
 
+def pdf_page(request): 
+    """ Build a context object to grab info for Looms Design page """
+
+    pdfs = Pdfs.objects.all()
+
+    # create a variable to put all the pdfs object into 
+
+    return render(request, 'brennanlooms_app/pdfs.html', {"pdfs": pdfs})
 
 
 
