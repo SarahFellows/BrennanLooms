@@ -87,9 +87,9 @@ class AboutPage(models.Model):
 class WebPageLink(models.Model):
     """ This is where the resoucres and links information is stored to be displayed on website. """
 
-    link_image = models.ImageField(upload_to='images', blank=True)
+    link_field = models.URLField(max_length=60)
+    link_image = models.FileField(upload_to='images')
     link_text = models.TextField(max_length=1000)
-    link_field = models.URLField(max_length=50)
     link_info = models.TextField(max_length=200, blank=True)
 
     # Overrite the string object so it shows which links/resources it is referencing on the admin site
