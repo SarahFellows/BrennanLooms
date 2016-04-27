@@ -12,12 +12,12 @@
 
         <p id="pdf-name"> {{pdf.pdf_name}} </p> 
 
-        <p id="pdf-file"> <a href="{{pdf.pdf_image}}">{{pdf.pdf_image}}</a></p> 
+        <p id="pdf-photo"> <a href="{{pdf.pdf_link.url}}"><img src="{{pdf.pdf_image.url}}" /></a></p> 
 
     </div> 
 
 {% endfor %}
 
-<footer> Click on an image to get a printable drawing with parts. </footer>
+<p id="footer"> Click on an image to get a printable drawing with parts. </p>
 
 

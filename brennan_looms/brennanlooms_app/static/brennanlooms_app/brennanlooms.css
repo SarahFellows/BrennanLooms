@@ -56,6 +56,9 @@ li {
     padding: 2px 10px 2px 10px;
     text-decoration: none;
     text-align: center;
+    font-weight: bold;
+    margin-right: 12px; 
+    margin-left: 12px; 
 }
 
 ul {
@@ -85,6 +88,8 @@ ul {
     margin-right: auto;
     border-radius: 50%;
     box-shadow: 400px white inset;
+    opacity: 0.9;
+    
 }
 
 /* ------------------ Links/Resource Page ------------------ */
@@ -115,20 +120,21 @@ ul {
 
 #pdf-name {
     text-align: center; 
-
+    font-weight: bold; 
+    color: 333333;
+    font-size: 120%; 
 }
 
 .list-of-pdfs {
-    min-height: 20%; 
-    max-height: 20%; 
-    max-width: 20%; 
-    min-width: 20%; 
-    margin: 2% 2% 2% 2%;
-    margin-left: 20%; 
     display: inline-block; 
-    vertical-align:top;
-    color: #333333; 
+    margin-left: 5%; 
+    margin-right: 5%; 
 }
+
+#footer{
+    text-align: center; 
+}
+
 /* ------------------ Contact Page ------------------ */
 
 .contact{
@@ -173,11 +179,6 @@ ul {
 .about-archie::first-letter{
     font-size: 200%;
     color: #333333;
-}
-
-.quote {
-
-
 }
 
 /* ------------------ Cart Page ------------------ */

@@ -112,9 +112,10 @@ class Image(models.Model):
     class Meta:
         ordering = ['-primary_img']
 
-class Pdfs(models.Model): 
+class Pdfs(models.Model):
     """ This is the model for all the Loom Design PDFs that users can download """
 
+    pdf_link = models.FileField(upload_to='pdfs')
     pdf_image = models.FileField(upload_to='images')
     pdf_name = models.TextField(max_length=200)
     pdf_description = models.TextField(max_length=1000)
