@@ -1,4 +1,4 @@
-document.getElementById("jumbotron").addEventListener('click', rotateImages);
+
 document.getElementById("company-info").addEventListener('click', changeAbout);
 document.getElementById("products").addEventListener('click', changeLooms);
 document.getElementById("links").addEventListener('click', changeLinks);
@@ -22,7 +22,7 @@ function cartPage(event){
     //and write it to sessionStorage
 function addToSessionStorage(id){
     // create a variable that holds the parsed data held in the sessionStorage//retrieve data
-    currentList = JSON.parse(sessionStorage.getItem("products"))
+    currentList = JSON.parse(sessionStorage.getItem("products"));
     // console.log(typeof(currentList))
     // if the sessionStorage doesn't hold any strings/objects, then create an empty string so 
     // the cart page doesn't render a error 500 if nothing is in the sessionStorage(cart) yet.
@@ -35,7 +35,13 @@ function addToSessionStorage(id){
     // Take the numbers pushed to currentList, make them a string (because thats the  
         //way the data can be accepted in sessionStorage), give it a name to refer the value to and set it to sessionStorage
         // store data
-    sessionStorage.setItem("products", JSON.stringify(currentList))
+    sessionStorage.setItem("products", JSON.stringify(currentList));
+
+    loadCartCount();
+
+    // Add success message 
+    document.getElementById("alert-"+id).textContent = "Loom added to Cart"
+
 }
 
 function changeCart(event) {
@@ -60,6 +66,15 @@ function loadCartPage(event){
     });
 }
 
+function loadCartCount(){
+
+    currentList = JSON.parse(sessionStorage.getItem("products"));
+    
+    if (currentList !== null){
+        count = currentList.length
+        document.getElementById("cart").textContent = "Cart (" + count + ")"; 
+    } 
+}
 // --------------------------- About --------------------------- //
 
 function changeAbout(event) {
@@ -103,7 +118,7 @@ function loadLoomsPage(){
         $("#content-box").html(data); 
     
         // This is the button for the cart 
-        document.addEventListener('click', cartPage)
+        $(".cart-button").bind('click', cartPage);
         //to everything on this selector, bind a click listener and run this function
         $(".product_image").bind("click", photoPop);
         $(".primary").bind("click", photoPop);
@@ -215,7 +230,7 @@ function loadContactPage(event){
 //     }
     
 //     // This adds the about to the url in the browser
-//     window.location = "#Home"; 
+//     window.location = ""; 
 // }
 
 // //Create a function to call the about page so it generated when the event listener is clicked
@@ -235,8 +250,16 @@ function loadContactPage(event){
 window.onhashchange = navigate;
 window.onload = navigate;
 
+// Variable that will hold the interval
+var interval;
+
 // This function calls each AJAX function when the page loads
 function navigate() {
+    // Stop the homepage rotation, just in case
+    clearInterval(interval);
+
+    loadCartCount(); 
+
     // get the hash - includes the pound - get all the things in the hash from one to the end, ignoring the #
     var link = window.location.hash.substr(1);
     if (link === "About"){
@@ -258,7 +281,7 @@ function navigate() {
         loadLoomDesign();
     }
     else {
-
+        runHomepage();
     }
 }
 
@@ -268,45 +291,53 @@ function navigate() {
 
 
 //function that rotates the images every 3 seconds 
-setInterval(rotateImages, 5000); 
+function runHomepage(){
 
-// need to track the value of i outside the function
-i = 1; 
-
-//create function to rotate the images in the jumbotron
-function rotateImages(){ 
-
-    // grab the id from the HTML 
     var jumbo = document.getElementById("jumbotron");
-    console.log(jumbo.style.backgroundImage)
+    jumbo.addEventListener('click', rotateImages);
 
-    var imageStrBeg = "url('static/brennanlooms_app/images/pdxcg_"; 
-    var imageStrEnd = ".jpg')"; 
-    
+    jumbo.className = "jumbotron";
 
-    // if the number if less than 9, add a 0 to it....
-    if (i <= 9){
-        // add 0 to the number 
-        i = "0" + i; 
-    }; 
+    interval = setInterval(rotateImages, 5000);
 
-    //concatinate the string together to make the image number increment and 
-    // hold into variable
-    var singleImage = (imageStrBeg + i + imageStrEnd)
-    console.log(singleImage)
-    
+    // need to track the value of i outside the function
+    i = 1; 
 
-    //change jumbo src to equal the concatinated equasion 
-    jumbo.style.backgroundImage= singleImage
+    //create function to rotate the images in the jumbotron
+    function rotateImages(){ 
 
-    //if i - the number of photo - is equal to 10, change it to equal one
-    // so it loops back 
-    if (i === 10){
-        i = 0 // This should be 0 or you will never see picture 1 - I noticed that, I was going to rename the photos hahahaha thank you!
+        // grab the id from the HTML 
+        var jumbo = document.getElementById("jumbotron");
+        console.log(jumbo.style.backgroundImage)
+
+        var imageStrBeg = "url('static/brennanlooms_app/images/pdxcg_"; 
+        var imageStrEnd = ".jpg')"; 
+        
+
+        // if the number if less than 9, add a 0 to it....
+        if (i <= 9){
+            // add 0 to the number 
+            i = "0" + i; 
+        }; 
+
+        //concatinate the string together to make the image number increment and 
+        // hold into variable
+        var singleImage = (imageStrBeg + i + imageStrEnd)
+        console.log(singleImage)
+        
+
+        //change jumbo src to equal the concatinated equasion 
+        jumbo.style.backgroundImage= singleImage
+
+        //if i - the number of photo - is equal to 10, change it to equal one
+        // so it loops back 
+        if (i === 10){
+            i = 0 // This should be 0 or you will never see picture 1 - I noticed that, I was going to rename the photos hahahaha thank you!
+        }
+
+        // increment each photo 
+        i++
     }
-
-    // increment each photo 
-    i++
 }
 
 

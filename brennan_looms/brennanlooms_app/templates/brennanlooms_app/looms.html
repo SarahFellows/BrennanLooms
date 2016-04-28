@@ -2,10 +2,6 @@
 
 {% load staticfiles %}
 
-<head> 
-<link rel="stylesheet" href="{% static 'brennanlooms_app/brennanlooms.css' %}">
-</head> 
-
 <h1> Looms </h1> 
 
 
@@ -18,19 +14,25 @@
 
     <!-- create a loop that loops through the loom images so they appear no matter how many there are, inside 
             the other loop so that it stays with the product.-->
+    <div class="thumb_box">
     {% for image in loom.images.all %}
 
         {% if image.primary_img %} 
 
         <img class="primary" src="{{image.photo.url}}" />
 
-        {% else %}
+            {% else %}
 
-        <img class="product_image" src="{{image.photo.url}}" />
+            <div class="product-thumb"> 
 
-        {% endif %}
+                <img class="product_image" src="{{image.photo.url}}" />
+
+            </div>
+
+            {% endif %}
 
     {% endfor %}
+    </div>
 
         <p id="loom-description"> {{loom.loom_description}} </p> 
 
@@ -39,6 +41,8 @@
         <p id="loom-cost"> {{loom.loom_cost}} </p>
 
         <p id="shipping"> {{loom.shipping}} </p>
+
+        <div id="alert-{{loom.pk}}" class="cart-alert"></div>
 
         <button type="button" id="{{loom.pk}}" class="cart-button">Add to Cart</button> 
 

@@ -1,9 +1,5 @@
 {% load staticfiles %}
 
-<head>
-<link rel="stylesheet" href="{% static 'brennanlooms_app/brennanlooms.css' %}">
-</head> 
-
 <h1> Resources </h1> 
 
 {% for link in links %}
@@ -14,7 +10,7 @@
         
         <p> <a href="{{link.link_field}}"><img src="{{link.link_image.url}}" id="link-img" /> </a> </p>
 
-        <p id="link-info"> {{link.link_info}}</p> 
+        <p id="link-info" class="link-text">{{link.link_info}}</p> 
 
     </div> 
 

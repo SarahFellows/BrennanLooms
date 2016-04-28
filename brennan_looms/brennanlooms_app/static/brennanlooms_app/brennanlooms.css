@@ -9,7 +9,8 @@
 
 body {
 
-    font-family: 'Poiret One', cursive;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300; 
 }
 
 .link-banner {
@@ -27,10 +28,11 @@ body {
     text-decoration: none; 
     margin: 2%; 
     padding: 3%;
+    text-align: center; 
 }
 
 h1{
-    font-weight: 900;
+    font-family: 'Poiret One', cursive;
     font-size: 40px;   
     text-align: center; 
 }
@@ -99,6 +101,7 @@ ul {
 
 #index-photo {
     text-align: center; 
+    font-family: 'Poiret One', cursive;
 }
 
 /* ------------------ Links/Resource Page ------------------ */
@@ -107,9 +110,8 @@ ul {
     min-height: 20%; 
     max-height: 20%; 
     max-width: 20%; 
-    min-width: 20%; 
-    margin: 2% 2% 2% 2%;
-    margin-left: 20%; 
+    min-width: 250px; 
+    margin: 2% 4% 2% 4%;
     display: inline-block; 
     vertical-align:top;
     color: #333333; 
@@ -131,6 +133,11 @@ ul {
     border-left-color: white; 
     border-top-color: white; 
     border-bottom-color: #D19D3D;
+    font-family: 'Poiret One', cursive;
+}
+
+.link-text {
+    text-align: left; 
 }
 
 /* ------------------ Loom Design/PDF Page ------------------ */
@@ -140,6 +147,7 @@ ul {
     font-weight: bold; 
     color: 333333;
     font-size: 120%; 
+    font-family: 'Poiret One', cursive; 
 }
 
 .list-of-pdfs {
@@ -164,7 +172,6 @@ ul {
 
 .contact{
     text-align: center;
-    font-weight: bold; 
     color: #333333; 
     font-size: 20px; 
 }
@@ -180,7 +187,10 @@ ul {
 }
 
 /*------------------ About Page ------------------*/
-    
+
+.about-company{
+    text-align: left; 
+}
 .about-jesse {
     width: 30%;
     display: inline-block; 
@@ -210,14 +220,13 @@ ul {
 /* ------------------ Cart Page ------------------ */
 
 #cart{
-    background-color:#D8C74C;
+    background-color:#E8B55C;
     border-radius:6px;
     border-radius:6px;
     border-radius:6px;
     border:1px solid #dcdcdc;
     display:inline-block;
     cursor:pointer;
-    color:#E8B55C;
     font-family:'Poiret One', cursive;
     font-size:15px;
     font-weight:bold;
@@ -226,7 +235,7 @@ ul {
     text-shadow:0 1px 0 #E8B55C;
     position: absolute;
     top: 5%;
-    right: 2.6%;
+    right: 3%;
     font-size: 18px; 
     box-shadow: 5px 5px 5px #888888;
 
@@ -283,18 +292,15 @@ ul {
     padding:1.5%;
     margin: 1% 1.5% 1%;
     content: center;
-    position: relative;
     color: #333333; 
+    text-align: left; 
 }
 
 .product_image{
-    display: inline-block;
-    padding: 5%;
     width: 100px; 
-    height: 200px; 
-    margin: inherit;
-    margin-left: 3.5%; 
-    border-radius: 25px;
+    position: absolute;
+    top: -10%;
+    left: 0;
     }
 
 
@@ -304,16 +310,36 @@ ul {
     font-size: 150%; 
     text-align: center; 
     color: #333333; 
+    font-family: 'Poiret One', cursive;
 }
 
 .primary {
-    width: 200px;
-    height: 300px;
-    border: none; 
+    height: 300px; 
     display: block;
     margin-left: auto;
     margin-right: auto; 
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+.thumb_box {
+    text-align: center; 
+}
+
+.product-thumb {
+    display: inline-block;
+    width: 100px; 
+    height: 100px; 
+    overflow: hidden; 
+    position: relative;
+    margin: 10px; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+}
+
+.cart-alert {
+    padding-bottom: 5px; 
+    color: #E7AE5A;
 }
 
 
