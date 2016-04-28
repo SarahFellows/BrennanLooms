@@ -268,7 +268,7 @@ function navigate() {
 
 
 //function that rotates the images every 3 seconds 
-setInterval(rotateImages, 2000); 
+setInterval(rotateImages, 5000); 
 
 // need to track the value of i outside the function
 i = 1; 

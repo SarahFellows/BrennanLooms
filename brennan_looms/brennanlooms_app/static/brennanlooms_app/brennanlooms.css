@@ -17,7 +17,8 @@ body {
     text-decoration: none; 
     padding: 1px;
     margin: 2%;
-    background-image: url('images/banner2.jpg'); ; 
+    background-image: url('images/banner3.jpg.png'); 
+    background-size: 100% 100%;
     font-family: 'Poiret One', cursive;
 }
 
@@ -92,6 +93,14 @@ ul {
     
 }
 
+#desc {
+    text-align: center; 
+}
+
+#index-photo {
+    text-align: center; 
+}
+
 /* ------------------ Links/Resource Page ------------------ */
 
 .list-of-links {
@@ -139,8 +148,15 @@ ul {
     margin-right: 5%; 
 }
 
-#footer{
+#footer2 {
     text-align: center; 
+
+}
+
+#footer1 {
+    text-align: center; 
+    font-style: italic;
+    color: #333333;
 
 }
 
@@ -150,6 +166,7 @@ ul {
     text-align: center;
     font-weight: bold; 
     color: #333333; 
+    font-size: 20px; 
 }
 
 #archie-drawing {
@@ -192,6 +209,28 @@ ul {
 
 /* ------------------ Cart Page ------------------ */
 
+#cart{
+    background-color:#D8C74C;
+    border-radius:6px;
+    border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#E8B55C;
+    font-family:'Poiret One', cursive;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0 1px 0 #E8B55C;
+    position: absolute;
+    top: 5%;
+    right: 2.6%;
+    font-size: 18px; 
+    box-shadow: 5px 5px 5px #888888;
+
+}
 .cart-button {
     box-shadow:inset 0 1px 0 0 #ffffff;
     box-shadow:inset 0 1px 0 0 #ffffff;
@@ -209,7 +248,7 @@ ul {
     border:1px solid #dcdcdc;
     display:inline-block;
     cursor:pointer;
-    color:#666666;
+    color:#333333;
     font-family:'Poiret One', cursive;
     font-size:15px;
     font-weight:bold;
@@ -245,7 +284,7 @@ ul {
     margin: 1% 1.5% 1%;
     content: center;
     position: relative;
-    color: 333333; 
+    color: #333333; 
 }
 
 .product_image{
@@ -264,7 +303,7 @@ ul {
     font-weight: bold;
     font-size: 150%; 
     text-align: center; 
-    color: 333333; 
+    color: #333333; 
 }
 
 .primary {
@@ -301,16 +340,6 @@ ul {
     border-bottom: 40px solid #fff;
     border-radius: 2px;
     background-color: #fff;
-}
-
-/**------------ Index's Styling -----------------**/
-
-
-footer {
-    text-align: center; 
-    font-style: italic;
-    color: 333333;
-
 }
 
 

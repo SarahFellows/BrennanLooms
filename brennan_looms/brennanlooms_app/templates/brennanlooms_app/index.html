@@ -19,6 +19,8 @@
 
         <div class="page-header"> 
                 <a href="/"><img src="{% static 'brennanlooms_app/images/logohandwritten.png' %}" id="logo" alt="Hand written logo by Ariche Brennan" width="25%" height="10%"></a> 
+
+                <button type="button" id="cart"> <a href="cart">Cart</a> </button> 
         </div>
 
 
@@ -40,9 +42,7 @@
                     <li id="pdfs">
                         <a href="pdfs">Loom Designs</a>
                     </li> 
-                    <li id="cart">
-                        <a href="cart">Cart</a>
-                    </li> 
+                
                 </ul> 
             </h2>
         </div>
@@ -50,7 +50,9 @@
         <div class="content-box" id="content-box">
 
             <div id="jumbotron" class="jumbotron"></div>
-
+        <br>
+        <br>
+        <p id="desc"> These are some of Archie Brennan's famous tapestries found on display in galleries all over the world. </p> 
         </div> 
 
         
@@ -58,9 +60,9 @@
     </div> 
 
     <img src="{% static 'brennanlooms_app/images/groupofmen.jpeg' %}" class="group_photo" alt="Classic photo of group of tapesty makers"/>
-    <br>
+    <p id="index-photo"> Archie teaching a tapestry class </p>
 
-    <footer>  These looms were designed by Archie Brennan. You may use these design for personal use but not to sell. </footer>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="/static/brennanlooms_app/brennanlooms.js" ></script>
